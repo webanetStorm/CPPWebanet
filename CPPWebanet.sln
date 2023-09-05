@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPPWebanet", "CPPWebanet.vcxproj", "{9B88B2F8-DAC5-44F2-A08F-51AE933075C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B88B2F8-DAC5-44F2-A08F-51AE933075C3}.Debug|x64.ActiveCfg = Debug|x64
+		{9B88B2F8-DAC5-44F2-A08F-51AE933075C3}.Debug|x64.Build.0 = Debug|x64
+		{9B88B2F8-DAC5-44F2-A08F-51AE933075C3}.Debug|x86.ActiveCfg = Debug|Win32
+		{9B88B2F8-DAC5-44F2-A08F-51AE933075C3}.Debug|x86.Build.0 = Debug|Win32
+		{9B88B2F8-DAC5-44F2-A08F-51AE933075C3}.Release|x64.ActiveCfg = Release|x64
+		{9B88B2F8-DAC5-44F2-A08F-51AE933075C3}.Release|x64.Build.0 = Release|x64
+		{9B88B2F8-DAC5-44F2-A08F-51AE933075C3}.Release|x86.ActiveCfg = Release|Win32
+		{9B88B2F8-DAC5-44F2-A08F-51AE933075C3}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {380D4AC4-2517-44D8-AE88-D0B08D461D33}
+	EndGlobalSection
+EndGlobal
