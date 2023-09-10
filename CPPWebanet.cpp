@@ -1,7 +1,6 @@
 ﻿#include <iostream>
 #include "1.h"
-
-using namespace WebanetA;
+#include "2.h"
 
 
 int main()
@@ -10,10 +9,18 @@ int main()
 	setlocale( LC_ALL, "Russian" );
 
 
-	// FuncA();
-	// FuncB();
-	// FuncC();
-	FuncD();
+	/* Д/З #1 */
+	// WebanetA::FuncA();
+	// WebanetA::FuncB();
+	// WebanetA::FuncC();
+	// WebanetA::FuncD();
+
+	/* Д/З #2 */
+	// WebanetB::FuncA();
+	// WebanetB::FuncB();
+	// WebanetB::FuncC();
+	// WebanetB::FuncD();
+	// WebanetB::FuncE();
 
 	return 0;
 

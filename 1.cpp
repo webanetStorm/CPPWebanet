@@ -20,10 +20,7 @@ namespace WebanetA
 
 		cout << "\nСумма: " << a + b << "\nРазность: " << a - b << "\nПроизведение: " << a * b << "\nЧастное: ";
 
-		if ( b != 0 )
-			cout << a / b << endl;
-		else
-			cout << "некорректный делитель\n";
+		b != 0 ? cout << a / b << endl : cout << "некорректный делитель\n";
 	}
 
 	void FuncB()
@@ -36,15 +33,7 @@ namespace WebanetA
 		cout << "Введите 2-ое число: ";
 		cin >> c;
 
-		if ( b == 0 )
-		{
-			if ( c == 0 )
-				cout << "\nx - любое число\n";
-			else
-				cout << "\nНет решений\n";
-		}
-		else
-			cout << "\nОтвет: " << -c / b << endl;
+		b == 0 ? c == 0 ? cout << "\nx - любое число\n" : cout << "\nНет решений\n" : cout << "\nОтвет: " << -c / b << endl;
 	}
 
 	void FuncC()
@@ -77,10 +66,7 @@ namespace WebanetA
 		bool isOpen = false;
 		bool lampOn = false;
 
-		if ( lampOn or ( isDay and isOpen ) )
-			cout << "Светло\n";
-		else
-			cout << "Темно\n";
+		lampOn or ( isDay and isOpen ) ? cout << "Светло\n" : cout << "Темно\n";
 	}
 
 }
