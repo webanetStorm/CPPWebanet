@@ -52,7 +52,11 @@ namespace WebanetA
 
 		float d = pow( b, 2 ) - ( 4 * a * c );
 
-		if ( d < 0 )
+		if ( a == 0 )
+			b == 0 ? c == 0 ? cout << "\nx - любое число\n" : cout << "\nНет решений\n" : cout << "\nОтвет: " << -c / b << endl;
+		else if ( c == 0 )
+			b == 0 ? cout << "x = " << sqrt( 0 / a ) << endl : cout << "x = " << 0 << ", " << -b / a << endl;
+		else if ( d < 0 )
 			cout << "\nНет корней\n";
 		else if ( d == 0 )
 			cout << "\nОтвет: " << -b / ( 2 * a ) << endl;

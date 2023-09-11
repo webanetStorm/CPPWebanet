@@ -12,7 +12,7 @@ int main()
 	/* Д/З #1 */
 	// WebanetA::FuncA();
 	// WebanetA::FuncB();
-	// WebanetA::FuncC();
+	WebanetA::FuncC();
 	// WebanetA::FuncD();
 
 	/* Д/З #2 */
@@ -21,6 +21,7 @@ int main()
 	// WebanetB::FuncC();
 	// WebanetB::FuncD();
 	// WebanetB::FuncE();
+
 
 	return 0;
 
