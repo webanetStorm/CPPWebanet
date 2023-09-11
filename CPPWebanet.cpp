@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include "1.h"
 #include "2.h"
+#include "3.h"
 
 
 int main()
@@ -12,7 +13,7 @@ int main()
 	/* Д/З #1 */
 	// WebanetA::FuncA();
 	// WebanetA::FuncB();
-	WebanetA::FuncC();
+	// WebanetA::FuncC();
 	// WebanetA::FuncD();
 
 	/* Д/З #2 */
@@ -21,6 +22,9 @@ int main()
 	// WebanetB::FuncC();
 	// WebanetB::FuncD();
 	// WebanetB::FuncE();
+
+	/* Д/З #3 */
+	WebanetC::FuncA();
 
 
 	return 0;
