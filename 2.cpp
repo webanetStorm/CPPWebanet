@@ -14,31 +14,67 @@ namespace WebanetB
 
 	void FuncA()
 	{
-		float R = 5, r = 3, h = 8, l = 4;
+		float r1, r2, h;
 
-		cout << "Объём: " << 1.0 / 3.0 * Pi() * h * ( pow( R, 2 ) + R * r + pow( r, 2 ) );
-		cout << "\nПлощадь поверхности: " << Pi() * ( pow( R, 2 ) + ( R + r ) * l + pow( r, 2 ) ) << endl;
+		cout << "Радиус основания конуса: ";
+		cin >> r1;
+
+		cout << "Радиус крыши конуса: ";
+		cin >> r2;
+
+		cout << "Ввысота конуса: ";
+		cin >> h;
+
+
+		float l = sqrt( pow( h, 2 ) + pow( r1 - r2, 2 ) );
+
+		cout << "Объём: " << 1.0 / 3.0 * Pi() * h * ( pow( r1, 2 ) + r1 * r2 + pow( r2, 2 ) );
+		cout << "\nПлощадь поверхности: " << Pi() * ( pow( r1, 2 ) + ( r1 + r2 ) * l + pow( r2, 2 ) ) << endl;
 	}
 
 	void FuncB()
 	{
-		float a = 3, x = 0.3;
-		abs( x ) < 1 ? cout << "w1 = " << a * log(x) << endl : cout << "Некорректное значение\n";
-		
-		a = 5, x = 2;
-		abs( x ) >= 1 and a - pow( x, 2 ) >= 0 ? cout << "w2 = " << sqrt(a - pow(x, 2)) << endl : cout << "Некорректные значения\n";
+		float a, x;
+
+		cout << "Число A: ";
+		cin >> a;
+
+		cout << "Число X: ";
+		cin >> x;
+
+		cout << endl;
+
+
+		abs( x ) < 1
+			? x != 0 ? cout << "w = " << a * log( x ) << endl : cout << "Некорректное значение для X\n"
+			: a - pow( x, 2 ) >= 0 ? cout << "w = " << sqrt( a - pow( x, 2 ) ) << endl : cout << "Некорректные значения переменных\n";
 	}
 
 	void FuncC()
 	{
-		float x = 3, y = 5, b = 11;
+		float x, y, b;
 
-	    b >= x and b - y > 0 ? cout << log( b - y ) * sqrt( b - x ) : cout << ":(";
+		cout << "Число X: ";
+		cin >> x;
+
+		cout << "Число Y: ";
+		cin >> y;
+
+		cout << "Число B: ";
+		cin >> b;
+
+		cout << endl;
+
+
+	    b >= x and b - y > 0 ? cout << log( b - y ) * sqrt( b - x ) << endl : cout << "Некорректные значения\n";
 	}
 
 	void FuncD()
 	{
-		int n = 2;
+		int n;
+
+		cout << "Число N: ";
+		cin >> n;
 
 		if ( n >= 1 )
 		{
@@ -46,7 +82,7 @@ namespace WebanetB
 				cout << i << endl;
 		}
 		else
-			cout << "N должно быть натуральным числом";
+			cout << "N должно быть натуральным числом\n";
 	}
 
 	void FuncE()

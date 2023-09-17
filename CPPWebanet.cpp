@@ -18,13 +18,13 @@ int main()
 
 	/* Д/З #2 */
 	// WebanetB::FuncA();
-	// WebanetB::FuncB();
+	WebanetB::FuncB();
 	// WebanetB::FuncC();
 	// WebanetB::FuncD();
 	// WebanetB::FuncE();
 
 	/* Д/З #3 */
-	WebanetC::FuncA();
+	// WebanetC::FuncA();
 
 
 	return 0;
