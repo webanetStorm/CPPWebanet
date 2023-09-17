@@ -17,8 +17,8 @@ int main()
 	// WebanetA::FuncD();
 
 	/* Д/З #2 */
-	// WebanetB::FuncA();
-	WebanetB::FuncB();
+	WebanetB::FuncA();
+	// WebanetB::FuncB();
 	// WebanetB::FuncC();
 	// WebanetB::FuncD();
 	// WebanetB::FuncE();
