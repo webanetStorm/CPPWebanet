@@ -90,7 +90,10 @@ namespace WebanetB
 		for ( float x = -4; x <= 4; x += 0.5 )
 		{
 			if ( x == 1 )
+			{
+				cout << "Îøèáêà\n";
 				continue;
+			}
 
 			cout << ( pow( x, 2 ) - 2 * x + 2 ) / ( x - 1 ) << endl;
 		}
