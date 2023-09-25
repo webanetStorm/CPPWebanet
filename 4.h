@@ -4,6 +4,13 @@
 namespace WebanetD
 {
 
-	int FuncA();
+	void FuncA();
+	void FuncB();
+	void FuncCA();
+	void FuncCB();
+	void FuncCC();
+	void FuncD();
+	void FuncE();
+	void FuncF();
 
 }

@@ -31,7 +31,13 @@ int main()
 	// WebanetC::FuncD();
 
 	/* Д/З #4 */
-	WebanetD::FuncA();
+	// WebanetD::FuncA();
+	// WebanetD::FuncB();
+	// WebanetD::FuncCA();
+	// WebanetD::FuncCB();
+	// WebanetD::FuncCC();
+	// WebanetD::FuncD();
+	WebanetD::FuncE();
 
 
 	return 0;

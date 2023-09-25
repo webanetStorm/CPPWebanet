@@ -11,7 +11,7 @@ namespace WebanetC
 
 	void FuncA()
 	{
-		float s = 50000, p = 13, n = 6;
+		float s = 1000000, p = 15, n = 20;
 		float r = p / 100;
 
 		cout << ( s * r * pow( 1 + r, n ) ) / ( 12 * ( pow( 1 + r, n ) - 1 ) ) << endl;
@@ -19,11 +19,12 @@ namespace WebanetC
 
 	void FuncB()
 	{
-		float s = 50000;
-		float n = 6;
+		float s = 1000000;
+		float n = 20;
 		float m = 0;
-		float mConst = 1042.31;
+		float mConst = 13313.5;
 		float r = 0.000001; 
+		int p;
 
 
 		if ( n == 0 or s <= 0 )
@@ -35,7 +36,9 @@ namespace WebanetC
 			r += 0.000001;
 		}
 
-		cout << "p = " << r * 100 << "%" << endl;
+		p = r * 100;
+
+		cout << "p = " << p << "%" << endl;
 	}
 
 	void FuncC()

@@ -4,6 +4,7 @@
 namespace WebanetB
 {
 
+	float Pi();
 	void FuncA();
 	void FuncB();
 	void FuncC();
