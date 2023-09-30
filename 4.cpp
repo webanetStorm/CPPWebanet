@@ -183,29 +183,64 @@ namespace WebanetD
 			case 'C': return 100;
 			case 'D': return 500;
 			case 'M': return 1000;
+			default: return 0;
 		}
-
-		return 0;
 	}
 
 	void FuncF()
 	{
-		char numChars[] = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
+		int result = 0;
+
+		char romanNumChars[7] = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
 		map<char, int> nums = {
-			{ numChars[0], 1},
-			{ numChars[1], 2 },
-			{ numChars[2], 3 },
-			{ numChars[3], 4 },
-			{ numChars[4], 5 },
-			{ numChars[5], 6 },
-			{ numChars[6], 7 }
+			{ romanNumChars[0], 1 },
+			{ romanNumChars[1], 2 },
+			{ romanNumChars[2], 3 },
+			{ romanNumChars[3], 4 },
+			{ romanNumChars[4], 5 },
+			{ romanNumChars[5], 6 },
+			{ romanNumChars[6], 7 }
 		};
 
-		string inputNumber;
-		cout << "Число: ";
-		cin >> inputNumber;
+		string input;
+		cout << "Ввод: ";
+		cin >> input;
 
+		int length = input.length();
 
+		for ( int i = 0; i < length; i++ )
+		{
+			auto currentNumber = find( romanNumChars, romanNumChars + 7, input[i] );
+
+			if ( currentNumber != end( romanNumChars ) )
+			{
+				int currentNumberWeight = convert( input[i] );
+
+				if ( i == length - 2 )
+				{
+					int nextNumberWeight = convert( input[i + 1] );
+
+					if ( currentNumberWeight < nextNumberWeight )
+					{
+						result += nextNumberWeight - currentNumberWeight;
+						break;
+					}
+					else
+						result += currentNumberWeight;
+				}
+				else
+					result += currentNumberWeight;
+			}
+			else
+			{
+				cout << "Некорректный ввод\n";
+
+				return;
+			}
+
+		}
+
+		cout << input << " = " << result << endl;
 	}
 
 }
