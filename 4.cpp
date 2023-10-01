@@ -44,6 +44,7 @@ namespace WebanetD
 			result += std::stoi( line );
 
 		in.close();
+		remove( "D1.txt" );
 
 		cout << "Результат: " << result << endl;
 	}
@@ -342,6 +343,7 @@ namespace WebanetD
 					result[3][0] += C[i][j];
 				}
 			}
+
 			cout << endl;
 		}
 
@@ -396,9 +398,9 @@ namespace WebanetD
 		}
 	}
 
-	double ToDecimal( string number, int base )
+	long double ToDecimal( string number, int base )
 	{
-		double result = 0;
+		long double result = 0;
 
 		for ( int i = 0; i < number.size(); i++ )
 			result += ToInt( number[i] ) * pow( base, number.size() - i - 1 );
@@ -429,7 +431,6 @@ namespace WebanetD
 		cout << "Конвертировать в СС с основанием: ";
 		cin >> endNumberSystem;
 
-		cout << ToDecimal( number, startNumberSystem ) << endl;
 		cout << "Результат: " << FromDecimal( ToDecimal( number, startNumberSystem ), endNumberSystem ) << endl;
 	}
 

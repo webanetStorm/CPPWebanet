@@ -64,12 +64,19 @@ namespace WebanetC
 		cout << endl;
 
 		in.close();
+		remove( "file.txt" );
+	}
 
+	bool IsDigit( char c )
+	{
+		return isdigit( static_cast<unsigned char>( c ) );
 	}
 
 	void FuncD()
 	{
-		string str = "ÉÖÓÊÅÍÃØÙÇÕÚÔÛÂÀÏĞÎËÄÆİß×ÑÌÈÒÜ";
+		string str = "ÉÖÓÊÅÍÃØÙÇÕÚÔÛÂÀÏĞÎËÄÆİß×ÑÌÈÒÜ180819";
+
+		str.erase( remove_if( str.begin(), str.end(), IsDigit ), str.end() );
 		
 		for ( int i = 0; i < str.length() - 1; i++ )
 			for ( int j = i; j < str.length() - 1; j++ )
