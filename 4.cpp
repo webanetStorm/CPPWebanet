@@ -243,4 +243,31 @@ namespace WebanetD
 		cout << input << " = " << result << endl;
 	}
 
+	int Random( int& s, int m, int b, int c )
+	{
+		return s = ( m * s + b ) % c;
+	}
+
+	void FuncG()
+	{
+		int s = 0;
+		int m = 37;
+		int b = 3;
+		int c = 64;
+
+		cout << "I вариант: " << endl;
+		for ( int i = 0; i < 10; i++ )
+			cout << Random( s, m, b, c ) << endl;
+
+
+		s = 0;
+		m = 25173;
+		b = 13849;
+		c = 65537;
+
+		cout << endl << "II вариант: " << endl;
+		for ( int i = 0; i < 10; i++ )
+			cout << Random( s, m, b, c ) << endl;
+	}
+
 }

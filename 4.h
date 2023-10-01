@@ -12,5 +12,6 @@ namespace WebanetD
 	void FuncD();
 	void FuncE();
 	void FuncF();
+	void FuncG();
 
 }
