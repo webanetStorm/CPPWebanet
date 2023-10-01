@@ -158,19 +158,36 @@ namespace WebanetD
 		}
 	}
 
-	void FuncE() // TODO: переделать
+	void FuncE()
 	{
-		int size = 100;
-		int height = 21;
+		const int WIDTH = 60;
+		const int HEIGHT = 15;
+		char graph[HEIGHT][WIDTH];
 
-		vector<string> sinGraph( height, string( size, ' ' ) );
-		sinGraph[height / 2] = string( size, '-' );
+		for ( int y = 0; y < HEIGHT; y++ )
+		{
+			for ( int x = 0; x < WIDTH; x++ )
+				graph[y][x] = ' ';
+		}
 
-		for ( int i = 0; i < size; i++ )
-			sinGraph[( round( 10 * sin( i / 4.5 ) + 10 ) )][i] = '*';
+		for ( int x = 0; x < WIDTH; x++ )
+		{
+			int y = ( sin( x * 2 * WebanetB::Pi() / WIDTH ) + 1 ) / 2 * HEIGHT;
 
-		for ( auto s : sinGraph )
-			cout << s << endl;
+			if ( ( y >= 0 ) and ( y < HEIGHT ) )
+			{
+				graph[y][x] = '*';
+			}
+		}
+
+		for ( int y = 0; y < HEIGHT; y++ )
+		{
+			for ( int x = 0; x < WIDTH; x++ )
+				cout << graph[y][x];
+			for ( int x = 0; x < WIDTH; x++ )
+				cout << graph[y][x];
+			cout << endl;
+		}
 	}
 
 	int convert( char num )
