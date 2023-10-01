@@ -39,7 +39,8 @@ int main()
 	// WebanetD::FuncD();
 	// WebanetD::FuncE
 	// WebanetD::FuncF();
-	WebanetD::FuncG();
+	// WebanetD::FuncG();
+	WebanetD::FuncH();
 
 
 	return 0;
