@@ -352,4 +352,85 @@ namespace WebanetD
 		cout << "\n5) Сумма, прошедшая через руки продавцов: " << result[2][0] + result[3][0] << endl;
 	}
 
+	int ToInt( char num ) {
+		switch ( num ) {
+			case '0': return 0;
+			case '1': return 1;
+			case '2': return 2;
+			case '3': return 3;
+			case '4': return 4;
+			case '5': return 5;
+			case '6': return 6;
+			case '7': return 7;
+			case '8': return 8;
+			case '9': return 9;
+			case 'A': return 10;
+			case 'B': return 11;
+			case 'C': return 12;
+			case 'D': return 13;
+			case 'E': return 14;
+			case 'F': return 15;
+			default: return -1;
+		}
+	}
+
+	string ToChar( int num ) {
+		switch ( num ) {
+			case 0: return "0";
+			case 1: return "1";
+			case 2: return "2";
+			case 3: return "3";
+			case 4: return "4";
+			case 5: return "5";
+			case 6: return "6";
+			case 7: return "7";
+			case 8: return "8";
+			case 9: return "9";
+			case 10: return "A";
+			case 11: return "B";
+			case 12: return "C";
+			case 13: return "D";
+			case 14: return "E";
+			case 15: return "F";
+			default: return "";
+		}
+	}
+
+	double ToDecimal( string number, int base )
+	{
+		double result = 0;
+
+		for ( int i = 0; i < number.size(); i++ )
+			result += ToInt( number[i] ) * pow( base, number.size() - i - 1 );
+
+		return result;
+	}
+
+
+	string FromDecimal( int number, int base )
+	{
+		string result = ToChar( number % base );
+
+		if ( number > 0 )
+			return FromDecimal( number / base, base ) + result;
+
+		return "";
+	}
+
+	void FuncJ()
+	{
+		string number;
+		int startNumberSystem, endNumberSystem;
+
+		cout << "Введите число: ";
+		cin >> number;
+		cout << "Основание СС введённого числа: ";
+		cin >> startNumberSystem;
+		cout << "Конвертировать в СС с основанием: ";
+		cin >> endNumberSystem;
+
+		cout << ToDecimal( number, startNumberSystem ) << endl;
+		cout << "Результат: " << FromDecimal( ToDecimal( number, startNumberSystem ), endNumberSystem ) << endl;
+	}
+
 }
