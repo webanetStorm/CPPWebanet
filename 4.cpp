@@ -37,13 +37,16 @@ namespace WebanetD
 
 
 
-		ifstream in( "D1.txt" );
-		string line;
-
-		while ( std::getline( in, line ) )
-			result += std::stoi( line );
-
-		in.close();
+		double digital = 0;
+		int i = 0;
+		ifstream ifile( "D1.txt" );
+		while ( i != 10 )
+		{
+			ifile >> digital;
+			result += digital;
+			i += 1;
+		}
+		ifile.close();
 		remove( "D1.txt" );
 
 		cout << "Результат: " << result << endl;
@@ -217,26 +220,27 @@ namespace WebanetD
 		cin >> input;
 
 		int length = input.length();
+		bool flag = false;
 
 		for ( int i = 0; i < length; i++ )
 		{
+			if ( flag )
+			{
+				flag = false;
+				continue;
+			}
+
 			auto currentNumber = find( romanNumChars, romanNumChars + 7, input[i] );
 
 			if ( currentNumber != end( romanNumChars ) )
 			{
 				int currentNumberWeight = Convert( input[i] );
+				int nextNumberWeight = Convert( input[i + 1] );
 
-				if ( i == length - 2 )
+				if ( currentNumberWeight < nextNumberWeight )
 				{
-					int nextNumberWeight = Convert( input[i + 1] );
-
-					if ( currentNumberWeight < nextNumberWeight )
-					{
-						result += nextNumberWeight - currentNumberWeight;
-						break;
-					}
-					else
-						result += currentNumberWeight;
+					result += nextNumberWeight - currentNumberWeight;
+					flag = true;
 				}
 				else
 					result += currentNumberWeight;

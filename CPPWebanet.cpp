@@ -3,6 +3,7 @@
 #include "2.h"
 #include "3.h"
 #include "4.h"
+#include "5.h"
 
 
 int main()
@@ -41,7 +42,12 @@ int main()
 	// WebanetD::FuncF();
 	// WebanetD::FuncG();
 	// WebanetD::FuncH();
-	WebanetD::FuncJ();
+	// WebanetD::FuncJ();
+
+	/* Д/З #5 */
+	// WebanetE::FuncA();
+	// WebanetE::FuncB();
+	WebanetE::FuncCA();
 
 
 	return 0;
