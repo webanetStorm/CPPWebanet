@@ -164,20 +164,12 @@ namespace WebanetD
 		const int HEIGHT = 15;
 		char graph[HEIGHT][WIDTH];
 
-		for ( int y = 0; y < HEIGHT; y++ )
-		{
-			for ( int x = 0; x < WIDTH; x++ )
-				graph[y][x] = ' ';
-		}
-
 		for ( int x = 0; x < WIDTH; x++ )
 		{
 			int y = ( sin( x * 2 * WebanetB::Pi() / WIDTH ) + 1 ) / 2 * HEIGHT;
 
 			if ( ( y >= 0 ) and ( y < HEIGHT ) )
-			{
 				graph[y][x] = '*';
-			}
 		}
 
 		for ( int y = 0; y < HEIGHT; y++ )
@@ -190,7 +182,7 @@ namespace WebanetD
 		}
 	}
 
-	int convert( char num )
+	int Convert( char num )
 	{
 		switch ( num )
 		{
@@ -232,11 +224,11 @@ namespace WebanetD
 
 			if ( currentNumber != end( romanNumChars ) )
 			{
-				int currentNumberWeight = convert( input[i] );
+				int currentNumberWeight = Convert( input[i] );
 
 				if ( i == length - 2 )
 				{
-					int nextNumberWeight = convert( input[i + 1] );
+					int nextNumberWeight = Convert( input[i + 1] );
 
 					if ( currentNumberWeight < nextNumberWeight )
 					{
@@ -424,7 +416,6 @@ namespace WebanetD
 
 		return result;
 	}
-
 
 	string FromDecimal( int number, int base )
 	{
