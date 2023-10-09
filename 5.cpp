@@ -7,7 +7,7 @@ using namespace std;
 
 
 namespace WebanetE
-{
+{	
 
 	float Max( float a, float b )
 	{

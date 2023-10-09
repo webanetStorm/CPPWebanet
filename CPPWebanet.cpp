@@ -47,9 +47,7 @@ int main()
 	/* Д/З #5 */
 	// WebanetE::FuncA();
 	// WebanetE::FuncB();
-	// WebanetE::FuncCA();
-	// WebanetE::FuncCB();
-	WebanetE::FuncDA();
+	WebanetE::FuncCA();
 
 
 	return 0;
