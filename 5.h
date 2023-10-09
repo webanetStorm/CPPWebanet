@@ -8,5 +8,6 @@ namespace WebanetE
 	void FuncB();
 	void FuncCA();
 	void FuncCB();
+	void FuncDA();
 
 }

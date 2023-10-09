@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -86,12 +87,51 @@ namespace WebanetE
 				cout << i << " ";
 	}
 
-	void FuncCA()
+	void FuncCA() // Преобразование разделителей: замена пробелов на другие(определенные) символы.
 	{
-		// ...
+		string text = "Какой-то текст с пробелами";
+		
+		for ( int i = 0; text[i]; i++ )
+			if ( text[i] == ' ' )
+				text[i] = '_';
+
+		cout << text << endl;
 	}
 
-	void FuncCB()
+	void FuncCB() // Обработка текста по словам: вставка разделителей между словами
+	{
+		string text = "Обработка текста по словам: вставка разделителей между словами";
+
+		for ( int i = 0; i < text.length(); i++ )
+			if ( text[i] == ' ' )
+				text.replace( i, 1, "|" );
+		
+		cout << text << endl;
+	}
+
+	void FuncDA() // Написать программу, которая вычисляет сумму диагональных элементов квадратной матрицы.
+	{
+		const int SIZE = 5;
+		float result = 0;
+		float matrix[SIZE][SIZE] = {
+			{ 1, 2, 3, 1, 1 },
+			{ 4, 1, 2, 1, 4 },
+			{ 1, 1, 1, 5, 2 },
+			{ 8, 1, 0, 1, 7 },
+			{ 1, 5, 2, 1, 1 }
+		};
+
+		for ( int i = 0; i < SIZE; i++ )
+			result += matrix[i][i];
+
+		for ( int i = 0; i < SIZE; i++ )
+			if ( SIZE % 2 == 0 or ( SIZE % 2 == 1 and i != SIZE - i - 1 ) )
+				result += matrix[i][SIZE - i - 1];
+
+		cout << "Сумма диагональных элементов: " << result << endl;
+	}
+
+	void FuncDB() // Дана строка S из n символов. Подсчитать максимальное число подряд идущих пробелов
 	{
 		// ...
 	}
