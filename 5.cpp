@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -133,7 +134,117 @@ namespace WebanetE
 
 	void FuncDB() // Дана строка S из n символов. Подсчитать максимальное число подряд идущих пробелов
 	{
-		// ...
+		string text = "Дана  строка S из  n символов.   Подсчитать     максимальное  число подряд        идущих  пробелов";
+		int result = 0, resultTemp = 0;
+		
+		for ( int i = 0; i <= text.length(); i++ )
+		{
+			text[i] == ' ' ? resultTemp++ : resultTemp = 0;
+			result = Max( result, resultTemp );
+		}
+
+		cout << "Максимальное число подряд идущих пробелов: " << result << endl;
+	}
+
+	vector<string> Explode( string separator, string text )
+	{
+		vector<string> result;
+		size_t start = 0, end = text.find( separator );
+
+		while ( end != string::npos )
+		{
+			result.push_back( text.substr( start, end - start ) );
+			start = end + separator.length();
+			end = text.find( separator, start );
+		}
+
+		result.push_back( text.substr( start ) );
+
+
+		return result;
+	}
+
+	string Implode( string separator, vector<string> array )
+	{
+		string result;
+		size_t size = array.size();
+
+		for ( int i = 0; i < size; i++ )
+			result += i == size - 1 ? array[i] : array[i] + separator;
+
+		return result;
+	}
+
+	/*
+	 * Создать файл, содержащий сведения в библиотеке о книгах: ФИО автора, название, год издания. 
+	 * Данные вводить с клавиатуры. В этом файле: найти название книги, автор и год издания которой вводятся вручную; 
+	 * определить имеется ли книга, в названии которой есть слово «С++». Если «да», то сообщить автора и год издания: 
+	 */
+	void FuncE()
+	{
+		int type;
+
+		cout << "Чтобы найти книгу в библиотеке - нажмите 1, чтобы добавить новую - нажмите 2: ";
+		cin >> type;
+
+
+		if ( type == 2 )
+		{
+			char isInput = '+';
+
+			ofstream out( "E5.txt", ios::app );
+
+			while ( isInput == '+' )
+			{
+				string name, author, book;
+				unsigned int date;
+
+				cout << "[Добавление новой книги]\nВведите название: ";
+				getline( cin >> ws, name );
+				cout << "Введите автора: ";
+				getline( cin >> ws, author );
+				cout << "Введите год издания: ";
+
+				book = name + author;
+				if ( !( cin >> date ) or book.find( "{_}") != string::npos )
+				{
+					cout << "Введены некорректные данные, заполните форму заново.\n";
+					return;
+				}
+
+				out << Implode( "{_}", { name, author, to_string( date ) } ) << endl;
+
+				cout << "Добавить ещё книгу (+/-)?: ";
+				cin >> isInput;
+			}
+
+			out.close();
+		}
+		else if ( type == 1 )
+		{
+			ifstream in( "E5.txt" );
+			vector<string> result;
+			string author, date, line;
+
+			cout << "\n[Поиск книги]\nВведите автора: ";
+			getline( cin >> ws, author );
+			cout << "Введите год издания: ";
+			cin >> date;
+
+			while ( getline( in, line ) )
+			{
+				vector<string> data = Explode( "{_}", line );
+				if ( data[1] == author and data[2] == date )
+					result.push_back( data[0] );
+			}
+
+			cout << "\nРезультаты поиска:\n";
+			result.size() == 0 ? cout << "Ничего не найдено\n" : cout << Implode( ", ", result ) << endl;
+
+			in.close();
+		}
+		else
+			cout << "Неизвестная команда\n";
 	}
 
 }

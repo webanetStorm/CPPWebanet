@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#include <windows.h>
+#include <iostream>
 #include "1.h"
 #include "2.h"
 #include "3.h"
@@ -10,6 +11,8 @@ int main()
 {
 
 	setlocale( LC_ALL, "Russian" );
+	SetConsoleCP( 1251 );
+	SetConsoleOutputCP( 1251 );
 
 
 	/* Д/З #1 */
@@ -47,7 +50,10 @@ int main()
 	/* Д/З #5 */
 	// WebanetE::FuncA();
 	// WebanetE::FuncB();
-	WebanetE::FuncCA();
+	// WebanetE::FuncCA();
+	// WebanetE::FuncDA();
+	// WebanetE::FuncDB();
+	WebanetE::FuncE();
 
 
 	return 0;
