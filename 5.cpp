@@ -206,7 +206,7 @@ namespace WebanetE
 				cout << "Введите год издания: ";
 
 				book = name + author;
-				if ( !( cin >> date ) or book.find( "{_}") != string::npos )
+				if ( !( cin >> date ) or book.find( "{_}" ) != string::npos )
 				{
 					cout << "Введены некорректные данные, заполните форму заново.\n";
 					return;
@@ -225,6 +225,7 @@ namespace WebanetE
 			ifstream in( "E5.txt" );
 			vector<string> result;
 			string author, date, line;
+			bool found = false;
 
 			cout << "\n[Поиск книги]\nВведите автора: ";
 			getline( cin >> ws, author );
@@ -234,17 +235,29 @@ namespace WebanetE
 			while ( getline( in, line ) )
 			{
 				vector<string> data = Explode( "{_}", line );
+
 				if ( data[1] == author and data[2] == date )
 					result.push_back( data[0] );
+
+				if ( !found and data[0].find( "C++" ) != string::npos )
+					found = true;
 			}
 
 			cout << "\nРезультаты поиска:\n";
 			result.size() == 0 ? cout << "Ничего не найдено\n" : cout << Implode( ", ", result ) << endl;
 
+			if ( found )
+				cout << "*В библиотеке есть книга про C++\n";
+
 			in.close();
 		}
 		else
 			cout << "Неизвестная команда\n";
+	}
+
+	void FuncED()
+	{
+		remove( "E5.txt" );
 	}
 
 }
