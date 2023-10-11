@@ -50,10 +50,11 @@ int main()
 	/* Д/З #5 */
 	// WebanetE::FuncA();
 	// WebanetE::FuncB();
-	// WebanetE::FuncCA();
+	// WebanetE::FuncCA
+	WebanetE::FuncCB();
 	// WebanetE::FuncDA();
 	// WebanetE::FuncDB();
-	WebanetE::FuncE();
+	// WebanetE::FuncE();
 
 
 	return 0;

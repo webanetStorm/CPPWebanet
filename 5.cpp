@@ -88,26 +88,49 @@ namespace WebanetE
 				cout << i << " ";
 	}
 
+	string StrReplace( string search, string replace, string subject )
+	{
+		size_t start = 0, end = subject.find( search ), length = search.length();
+
+		while ( end != string::npos )
+		{
+			subject.replace( end, length, replace );
+			start = end + length;
+			end = subject.find( search, start );
+		}
+
+		return subject;
+	}
+
+	string Trim( string subject )
+	{
+		int lastIndex = subject.length() - 1;
+
+		if ( subject[0] == ' ' ) 
+			subject.erase( 0, 1 );
+
+		if ( subject[lastIndex] == ' ' )
+			subject.erase( lastIndex, 1 );
+
+		return subject;
+	}
+
+	string RemoveExtraSpaces( string subject )
+	{
+		while ( subject.find( "  " ) != string::npos )
+			subject = StrReplace( "  ", " ", subject );
+
+		return Trim( subject );
+	}
+
 	void FuncCA() // ѕреобразование разделителей: замена пробелов на другие(определенные) символы.
 	{
-		string text = " акой-то текст с пробелами";
-		
-		for ( int i = 0; text[i]; i++ )
-			if ( text[i] == ' ' )
-				text[i] = '_';
-
-		cout << text << endl;
+		cout << StrReplace( " ", "_", " акой-то текст с пробелами    ....    <>" ) << endl;
 	}
 
 	void FuncCB() // ќбработка текста по словам: вставка разделителей между словами
 	{
-		string text = "ќбработка текста по словам: вставка разделителей между словами";
-
-		for ( int i = 0; i < text.length(); i++ )
-			if ( text[i] == ' ' )
-				text.replace( i, 1, "|" );
-		
-		cout << text << endl;
+		cout << StrReplace( " ", "|", RemoveExtraSpaces( " ќбработка    текста по словам: вставка       разделителей между   словами" ) ) << endl;
 	}
 
 	void FuncDA() // Ќаписать программу, котора€ вычисл€ет сумму диагональных элементов квадратной матрицы.
@@ -153,12 +176,12 @@ namespace WebanetE
 
 		while ( end != string::npos )
 		{
-			result.push_back( text.substr( start, end - start ) );
+			result.push_back( Trim( text.substr( start, end - start ) ) );
 			start = end + separator.length();
 			end = text.find( separator, start );
 		}
 
-		result.push_back( text.substr( start ) );
+		result.push_back( Trim( text.substr( start ) ) );
 
 
 		return result;
