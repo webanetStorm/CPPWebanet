@@ -205,6 +205,7 @@ namespace WebanetE
 	 */
 	void FuncE()
 	{
+		const string SEPARATOR = "{_}";
 		int type;
 
 		cout << "Чтобы найти книгу в библиотеке - нажмите 1, чтобы добавить новую - нажмите 2: ";
@@ -229,13 +230,13 @@ namespace WebanetE
 				cout << "Введите год издания: ";
 
 				book = name + author;
-				if ( !( cin >> date ) or book.find( "{_}" ) != string::npos )
+				if ( !( cin >> date ) or book.find( SEPARATOR ) != string::npos )
 				{
 					cout << "Введены некорректные данные, заполните форму заново.\n";
 					return;
 				}
 
-				out << Implode( "{_}", { name, author, to_string( date ) } ) << endl;
+				out << Implode( SEPARATOR, { name, author, to_string( date ) } ) << endl;
 
 				cout << "Добавить ещё книгу (+/-)?: ";
 				cin >> isInput;
@@ -257,7 +258,7 @@ namespace WebanetE
 
 			while ( getline( in, line ) )
 			{
-				vector<string> data = Explode( "{_}", line );
+				vector<string> data = Explode( SEPARATOR, line );
 
 				if ( data[1] == author and data[2] == date )
 					result.push_back( data[0] );
