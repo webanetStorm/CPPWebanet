@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -27,7 +28,7 @@ namespace WebanetE
 		if ( ( rem = fmod( Max( a, b ), ( min = Min( a, b ) ) ) ) == 0 )
 			return min;
 
-		return DivEuclid( abs( min ), abs ( rem ) );
+		return DivEuclid( abs( min ), abs( rem ) );
 	}
 
 	float SubEuclid( float a, float b )
@@ -104,36 +105,36 @@ namespace WebanetE
 
 	string Trim( string subject )
 	{
-		int lastIndex = subject.length() - 1;
-
-		if ( subject[0] == ' ' ) 
+		while ( subject[0] == ' ' )
 			subject.erase( 0, 1 );
 
-		if ( subject[lastIndex] == ' ' )
-			subject.erase( lastIndex, 1 );
+		while ( subject[subject.length() - 1] == ' ' )
+			subject.erase( subject.length() - 1, 1 );
 
 		return subject;
 	}
 
 	string RemoveExtraSpaces( string subject )
 	{
+		subject = Trim( subject );
+		
 		while ( subject.find( "  " ) != string::npos )
 			subject = StrReplace( "  ", " ", subject );
 
-		return Trim( subject );
+		return subject;
 	}
 
-	void FuncCA() // Преобразование разделителей: замена пробелов на другие(определенные) символы.
+	void FuncCA() // Преобразование разделителей: замена пробелов на другие(определенные) символы. | #1
 	{
-		cout << StrReplace( " ", "_", "Какой-то текст с пробелами    ....    <>" ) << endl;
+		cout << StrReplace( " ", "_", "Какой-то текст с пробелами    ....    <>   !  qwerty  " ) << endl;
 	}
 
-	void FuncCB() // Обработка текста по словам: вставка разделителей между словами
+	void FuncCB() // Обработка текста по словам: вставка разделителей между словами | #11
 	{
-		cout << StrReplace( " ", "|", RemoveExtraSpaces( " Обработка    текста по словам: вставка       разделителей между   словами" ) ) << endl;
+		cout << StrReplace( " ", "|", RemoveExtraSpaces( " Обработка    текста по словам: вставка       разделителей между   словами       " ) ) << endl;
 	}
 
-	void FuncDA() // Написать программу, которая вычисляет сумму диагональных элементов квадратной матрицы.
+	void FuncDA() // Написать программу, которая вычисляет сумму диагональных элементов квадратной матрицы. | #47
 	{
 		const int SIZE = 5;
 		float result = 0;
@@ -155,9 +156,9 @@ namespace WebanetE
 		cout << "Сумма диагональных элементов: " << result << endl;
 	}
 
-	void FuncDB() // Дана строка S из n символов. Подсчитать максимальное число подряд идущих пробелов
+	void FuncDB() // Дана строка S из n символов. Подсчитать максимальное число подряд идущих пробелов | #35
 	{
-		string text = "Дана  строка S из  n символов.   Подсчитать     максимальное  число подряд        идущих  пробелов";
+		string text = " Дана    строка  S из   n символов.    Подсчитать      максимальное   число  подряд         идущих  пробелов   ";
 		int result = 0, resultTemp = 0;
 		
 		for ( int i = 0; i <= text.length(); i++ )
@@ -167,6 +168,17 @@ namespace WebanetE
 		}
 
 		cout << "Максимальное число подряд идущих пробелов: " << result << endl;
+	}
+
+	void FuncDC() // Написать программу, которая объединяет два упорядоченных по возрастанию массива в один, также упорядоченный по возрастанию, массив. | #43
+	{
+		vector<int> generalArray = { 1, 4, 5, 9, 16 }, sideArray = { -3, 7, 10, 22 };
+
+		generalArray.insert( generalArray.end(), sideArray.begin(), sideArray.end() );
+		sort( generalArray.begin(), generalArray.end() );
+
+		for ( int elem : generalArray )
+			cout << elem << ' ';
 	}
 
 	vector<string> Explode( string separator, string text )
@@ -198,10 +210,10 @@ namespace WebanetE
 		return result;
 	}
 
-	/*
+	/* | #2
 	 * Создать файл, содержащий сведения в библиотеке о книгах: ФИО автора, название, год издания. 
 	 * Данные вводить с клавиатуры. В этом файле: найти название книги, автор и год издания которой вводятся вручную; 
-	 * определить имеется ли книга, в названии которой есть слово «С++». Если «да», то сообщить автора и год издания: 
+	 * определить имеется ли книга, в названии которой есть слово «С++». Если «да», то сообщить автора и год издания:
 	 */
 	void FuncE()
 	{
@@ -271,7 +283,7 @@ namespace WebanetE
 			result.size() == 0 ? cout << "Ничего не найдено\n" : cout << Implode( ", ", result ) << endl;
 
 			if ( found )
-				cout << "*В библиотеке есть книга про C++\n";
+				cout << "\n*В библиотеке есть книга про C++\n";
 
 			in.close();
 		}

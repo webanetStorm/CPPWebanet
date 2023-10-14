@@ -10,6 +10,7 @@ namespace WebanetE
 	void FuncCB();
 	void FuncDA();
 	void FuncDB();
+	void FuncDC();
 	void FuncE();
 	void FuncED();
 
