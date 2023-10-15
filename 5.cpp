@@ -232,7 +232,7 @@ namespace WebanetE
 
 			while ( isInput == '+' )
 			{
-				string name, author, book;
+				string name, author;
 				unsigned int date;
 
 				cout << "[Добавление новой книги]\nВведите название: ";
@@ -241,10 +241,10 @@ namespace WebanetE
 				getline( cin >> ws, author );
 				cout << "Введите год издания: ";
 
-				book = name + author;
-				if ( !( cin >> date ) or book.find( SEPARATOR ) != string::npos )
+				if ( !( cin >> date ) or ( name + author ).find( SEPARATOR ) != string::npos )
 				{
 					cout << "Введены некорректные данные, заполните форму заново.\n";
+
 					return;
 				}
 
