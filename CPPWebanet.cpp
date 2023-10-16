@@ -50,7 +50,7 @@ int main()
 	/* Д/З #5 */
 	// WebanetE::FuncA();
 	// WebanetE::FuncB();
-	// WebanetE::FuncCA
+	// WebanetE::FuncCA();
 	// WebanetE::FuncCB();
 	// WebanetE::FuncDA();
 	// WebanetE::FuncDB();
@@ -59,4 +59,4 @@ int main()
 
 	return 0;
 
-}
+} // solders1@bk.ru

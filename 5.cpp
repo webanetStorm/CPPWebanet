@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -168,17 +167,6 @@ namespace WebanetE
 		}
 
 		cout << "Максимальное число подряд идущих пробелов: " << result << endl;
-	}
-
-	void FuncDC() // Написать программу, которая объединяет два упорядоченных по возрастанию массива в один, также упорядоченный по возрастанию, массив. | #43
-	{
-		vector<int> generalArray = { 1, 4, 5, 9, 16 }, sideArray = { -3, 7, 10, 22 };
-
-		generalArray.insert( generalArray.end(), sideArray.begin(), sideArray.end() );
-		sort( generalArray.begin(), generalArray.end() );
-
-		for ( int elem : generalArray )
-			cout << elem << ' ';
 	}
 
 	vector<string> Explode( string separator, string text )

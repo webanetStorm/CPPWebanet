@@ -7,7 +7,7 @@ using namespace std;
 namespace WebanetB
 {
 
-	float Pi()
+	float Pi() // кастомная функция, возвращающая число пи
 	{
 		return 3.1415926535;
 	}
@@ -45,8 +45,8 @@ namespace WebanetB
 		cout << endl;
 
 
-		abs( x ) < 1
-			? x != 0 ? cout << "w = " << a * log( x ) << endl : cout << "Некорректное значение для X\n"
+		abs( x ) < 1 // abs() - модуль числа
+			? x != 0 ? cout << "w = " << a * log( x ) << endl : cout << "Некорректное значение для X\n" // log() - натуральный логарифм
 			: a - pow( x, 2 ) >= 0 ? cout << "w = " << sqrt( a - pow( x, 2 ) ) << endl : cout << "Некорректные значения переменных\n";
 	}
 
@@ -71,13 +71,13 @@ namespace WebanetB
 
 	void FuncD()
 	{
-		int n;
+		int n; // переменная типа int 
 
 		cout << "Число N: ";
 		cin >> n;
 
 		if ( n >= 1 )
-			for ( int i = n; i < n + 10; i++ )
+			for ( int i = n; i < n + 10; i++ ) // цикл с конкретным кол-вом итераций
 				cout << i << endl;
 		else
 			cout << "N должно быть натуральным числом\n";
@@ -90,7 +90,7 @@ namespace WebanetB
 			if ( x == 1 )
 			{
 				cout << "Ошибка\n";
-				continue;
+				continue; // Переход на следующую итерацию цикла
 			}
 
 			cout << ( pow( x, 2 ) - 2 * x + 2 ) / ( x - 1 ) << endl;

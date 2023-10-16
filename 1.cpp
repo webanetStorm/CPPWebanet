@@ -1,26 +1,28 @@
-#include <iostream>
-#include <math.h>
+#include <iostream> // Подключение стандартной библиотеки для организации ввода/вывода
+#include <math.h> // Библиотека для выполенния математических операций
 
-using namespace std;
+using namespace std; // Подключение пространства имён
 
 
-namespace WebanetA
+namespace WebanetA // Пространство имён (первое дз)
 {
 
-	void FuncA()
+	void FuncA() // Функция (первое задание)
 	{
-		float a, b;
+		float a, b; // объявление переменных (чисел с плавающей точкой)
 
-		cout << "Введите 1-ое число: ";
-		cin >> a;
+		cout << "Введите 1-ое число: "; // вывод
+		cin >> a; // ввод
 
 		cout << "Введите 2-ое число: ";
 		cin >> b;
 
 
+		// сумма, разность, произведение, частное, вывод
 		cout << "\nСумма: " << a + b << "\nРазность: " << a - b << "\nПроизведение: " << a * b << "\nЧастное: ";
 
-		b != 0 ? cout << a / b << endl : cout << "некорректный делитель\n";
+		// сокращённое условие if-else условие (тернанрные операторы)
+		b != 0 ? cout << a / b << endl : cout << "некорректный делитель\n"; 
 	}
 
 	void FuncB()
@@ -50,23 +52,23 @@ namespace WebanetA
 		cin >> c;
 
 
-		float d = pow( b, 2 ) - ( 4 * a * c );
+		float d = pow( b, 2 ) - ( 4 * a * c ); // функция библиотеки math.c возведения в степень
 
-		if ( a == 0 )
+		if ( a == 0 ) // условие если, операторы сравнения ->
 			b == 0 ? c == 0 ? cout << "\nx - любое число\n" : cout << "\nНет решений\n" : cout << "\nОтвет: " << -c / b << endl;
-		else if ( c == 0 )
-			b == 0 ? cout << "x = " << sqrt( 0 / a ) << endl : cout << "x = " << 0 << ", " << -b / a << endl;
+		else if ( c == 0 ) // есловие иначе если
+			b == 0 ? cout << "x = " << sqrt( 0 / a ) << endl : cout << "x = " << 0 << ", " << -b / a << endl; // sqrt - ф. кореня
 		else if ( d < 0 )
 			cout << "\nНет корней\n";
 		else if ( d == 0 )
 			cout << "\nОтвет: " << -b / ( 2 * a ) << endl;
-		else
+		else // иначе
 			cout << "\nОтвет: " << ( sqrt( d ) - b ) / ( 2 * a ) << ", " << ( -b - sqrt(d) ) / ( 2 * a ) << endl;
 	}
 
 	void FuncD()
 	{
-		bool isDay = true;
+		bool isDay = true; // булевые переменные (истина/ложь)
 		bool isOpen = false;
 		bool lampOn = false;
 
