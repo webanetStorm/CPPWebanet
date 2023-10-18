@@ -2,7 +2,6 @@
 #include <iostream>
 #include <numeric>
 #include <vector>
-#include "5.h"
 
 using namespace std;
 

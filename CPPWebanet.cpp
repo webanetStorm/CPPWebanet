@@ -6,6 +6,7 @@
 #include "4.h"
 #include "5.h"
 #include "6.h"
+#include "7.h"
 
 
 int main()
@@ -58,7 +59,11 @@ int main()
 	// WebanetE::FuncE();
 
 	/* Шарики */
-	WebanetF::Func();
+	// WebanetF::Func();
+
+	/* Спиннеры */
+	// WebanetG::FuncA();
+	WebanetG::FuncB();
 
 
 	return 0;
