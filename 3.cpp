@@ -19,26 +19,16 @@ namespace WebanetC
 
 	void FuncB()
 	{
-		float s = 1000000;
-		float n = 20;
-		float m = 0;
-		float mConst = 13313.5;
-		float r = 0.000001; 
+		float s = 1000000, n = 20, m = 0, mConst = 13313.5, r = 0.0001;
 		int p;
-
-
-		if ( n == 0 or s <= 0 )
-			cout << "Некорректные значения\n";
 
 		while ( m < mConst )
 		{
 			m = s * r * pow( 1 + r, n ) / ( 12 * ( pow( 1 + r, n ) - 1 ) );
-			r += 0.000001;
+			r += 0.0001;
 		}
 
-		p = r * 100;
-
-		cout << "p = " << p << "%" << endl;
+		cout << "p = " << ( p = r * 100 ) << "%" << endl;
 	}
 
 	void FuncC()

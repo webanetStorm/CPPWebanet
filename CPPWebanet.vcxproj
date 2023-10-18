@@ -132,6 +132,7 @@
     <ClCompile Include="3.cpp" />
     <ClCompile Include="4.cpp" />
     <ClCompile Include="5.cpp" />
+    <ClCompile Include="6.cpp" />
     <ClCompile Include="CPPWebanet.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="3.h" />
     <ClInclude Include="4.h" />
     <ClInclude Include="5.h" />
+    <ClInclude Include="6.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

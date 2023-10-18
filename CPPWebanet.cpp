@@ -5,6 +5,7 @@
 #include "3.h"
 #include "4.h"
 #include "5.h"
+#include "6.h"
 
 
 int main()
@@ -54,7 +55,10 @@ int main()
 	// WebanetE::FuncCB();
 	// WebanetE::FuncDA();
 	// WebanetE::FuncDB();
-	WebanetE::FuncE();
+	// WebanetE::FuncE();
+
+	/* Шарики */
+	WebanetF::Func();
 
 
 	return 0;
