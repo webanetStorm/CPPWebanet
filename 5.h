@@ -13,5 +13,6 @@ namespace WebanetE
 	void FuncDC();
 	void FuncE();
 	void FuncED();
+	float Max( float a, float b );
 
 }

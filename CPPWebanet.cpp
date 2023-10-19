@@ -18,6 +18,7 @@ int main()
 
 
 	/* Д/З #1 */
+	// WebanetA::FuncZ();
 	// WebanetA::FuncA();
 	// WebanetA::FuncB();
 	// WebanetA::FuncC();
@@ -63,7 +64,10 @@ int main()
 
 	/* Спиннеры */
 	// WebanetG::FuncA();
-	WebanetG::FuncB();
+	// WebanetG::FuncB();
+	// WebanetG::FuncC();
+	// WebanetG::FuncD();
+	WebanetG::FuncE();
 
 
 	return 0;

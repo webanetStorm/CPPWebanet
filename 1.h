@@ -4,6 +4,7 @@
 namespace WebanetA
 {
 
+	void FuncZ();
 	void FuncA();
 	void FuncB();
 	void FuncC();
