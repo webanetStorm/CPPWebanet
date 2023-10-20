@@ -1,7 +1,7 @@
 #include <iostream> // Подключение стандартной библиотеки для организации ввода/вывода
 #include <math.h> // Библиотека для выполенния математических операций
 
-using namespace std; // Подключение пространства имён
+using namespace std; // Подключение пространства имён std
 
 
 namespace WebanetA // Пространство имён A (первое дз)
@@ -62,7 +62,7 @@ namespace WebanetA // Пространство имён A (первое дз)
 		if ( a == 0 ) // условие если, операторы сравнения ->
 			b == 0 ? c == 0 ? cout << "\nx - любое число\n" : cout << "\nНет решений\n" : cout << "\nОтвет: " << -c / b << endl;
 		else if ( c == 0 ) // есловие иначе если
-			b == 0 ? cout << "x = " << sqrt( 0 / a ) << endl : cout << "x = " << 0 << ", " << -b / a << endl; // sqrt - ф. кореня
+			b == 0 ? cout << "x = " << sqrt( 0 / a ) << endl : cout << "x = " << 0 << ", " << -b / a << endl; // sqrt() - ф. кореня
 		else if ( d < 0 )
 			cout << "\nНет корней\n";
 		else if ( d == 0 )
@@ -77,7 +77,7 @@ namespace WebanetA // Пространство имён A (первое дз)
 		bool isOpen = false;
 		bool lampOn = false;
 
-		lampOn or ( isDay and isOpen ) ? cout << "Светло\n" : cout << "Темно\n";
+		lampOn or ( isDay and isOpen ) ? cout << "Светло\n" : cout << "Темно\n"; // Чтобы было светло, нужна либо включённая лампа, либо день и открытое окно
 	}
 
 }

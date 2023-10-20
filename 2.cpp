@@ -28,7 +28,7 @@ namespace WebanetB
 
 		float l = sqrt( pow( h, 2 ) + pow( r1 - r2, 2 ) );
 
-		cout << "Объём: " << 1.0 / 3.0 * Pi() * h * ( pow( r1, 2 ) + r1 * r2 + pow( r2, 2 ) );
+		cout << "Объём: " << 1.0 / 3.0 * Pi() * h * ( pow( r1, 2 ) + r1 * r2 + pow( r2, 2 ) ); // pow() - ф. возведения в степень
 		cout << "\nПлощадь поверхности: " << Pi() * ( pow( r1, 2 ) + ( r1 + r2 ) * l + pow( r2, 2 ) ) << endl;
 	}
 
@@ -87,7 +87,7 @@ namespace WebanetB
 	{
 		for ( float x = -4; x <= 4; x += 0.5 )
 		{
-			if ( x == 1 )
+			if ( x == 1 ) // пропуск x=1 во избежания деления на 0
 			{
 				cout << "Ошибка\n";
 				continue; // Переход на следующую итерацию цикла

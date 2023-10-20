@@ -12,13 +12,17 @@
 int main()
 {
 
+	/* Адекватная работа на русском языке, в т.ч. для записи в файлы */
 	setlocale( LC_ALL, "Russian" );
 	SetConsoleCP( 1251 );
 	SetConsoleOutputCP( 1251 );
+	/* === */
 
+
+	/* Каждое пространство имён вида WebanetX - отдельное ДЗ, каждая функция вида FuncX() - отдельное задание из ДЗ. A=1, B=2, C=3 и т.д. */
 
 	/* Д/З #1 */
-	// WebanetA::FuncZ();
+	// WebanetA::FuncZ(); // самое первое задание (вывод имени)
 	// WebanetA::FuncA();
 	// WebanetA::FuncB();
 	// WebanetA::FuncC();
@@ -34,7 +38,7 @@ int main()
 	/* Д/З #3 */
 	// WebanetC::FuncA();
 	// WebanetC::FuncB();
-	// WebanetC::FuncC();
+	// WebanetC::FuncC(); // 3 и 4 задания
 	// WebanetC::FuncD();
 
 	/* Д/З #4 */
@@ -47,7 +51,7 @@ int main()
     // WebanetD::FuncE();
 	// WebanetD::FuncF();
 	// WebanetD::FuncG();
-	// WebanetD::FuncH();
+	WebanetD::FuncH();
 	// WebanetD::FuncJ();
 
 	/* Д/З #5 */
@@ -67,7 +71,7 @@ int main()
 	// WebanetG::FuncB();
 	// WebanetG::FuncC();
 	// WebanetG::FuncD();
-	WebanetG::FuncE();
+	// WebanetG::FuncE();
 
 
 	return 0;

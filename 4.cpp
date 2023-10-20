@@ -4,7 +4,7 @@
 #include <vector>
 #include <cmath>
 #include <map>
-#include "2.h"
+#include "2.h" // нужно для использования ф. Pi() из ДЗ #2
 
 using namespace std;
 
@@ -17,6 +17,7 @@ namespace WebanetD
 		float inputNumber, result = 0;
 		ofstream file( "D1.txt" );
 
+		// Считываем и пишем в файл числа
 		for ( int i = 1; i <= 10; i++ )
 		{
 			cout << "Число #" << i << ": ";
@@ -37,10 +38,10 @@ namespace WebanetD
 
 
 
-		double digital = 0;
-		int i = 0;
+		double digital = 0; // для хранения числа из файла
+		int i = 0; // Счетчик итераций (всего 10 чисел в файле, соотвественноЮ 10 итераций вайла)
 		ifstream ifile( "D1.txt" );
-		while ( i != 10 )
+		while ( i != 10 ) // Перебор чисел из файла и их суммирование
 		{
 			ifile >> digital;
 			result += digital;
@@ -52,7 +53,7 @@ namespace WebanetD
 		cout << "Результат: " << result << endl;
 	}
 
-	void Sign( float number )
+	void Sign( float number ) // Ф., определяющая знак числа
 	{
 		cout << "Знак: ";
 
@@ -70,12 +71,12 @@ namespace WebanetD
 		cout << "Число: ";
 
 		if ( cin >> number )
-			Sign( number );
+			Sign( number ); // Вызов ф. Sign()
 		else
 			cout << "Некорректынй ввод" << endl;
 	}
 
-	float RectangleArea( float a, float b )
+	float RectangleArea( float a, float b ) // S прямоугольника
 	{
 		return a * b;
 	}
@@ -103,7 +104,7 @@ namespace WebanetD
 		cout << "Площадь прямоугольника: " << RectangleArea( rectangleA, rectangleB ) << endl;
 	}
 
-	float TriangleArea( float a, float h )
+	float TriangleArea( float a, float h ) // S треугольника по основанию и высоте
 	{
 		return a * h * 0.5;
 	}
@@ -131,7 +132,7 @@ namespace WebanetD
 		cout << "Площадь треугольника: " << TriangleArea( triangleA, triangleH ) << endl;
 	}
 
-	float CircleArea( float r )
+	float CircleArea( float r ) // S круга
 	{
 		return WebanetB::Pi() * pow( r, 2 );
 	}
@@ -153,30 +154,33 @@ namespace WebanetD
 
 	void FuncD()
 	{
-		for ( int i = 1; i <= 13; i++ )
+		for ( int i = 1; i <= 13; i++ ) // строки
 		{
-			for ( int j = 1; j <= 35; j++ )
+			for ( int j = 1; j <= 35; j++ ) // стобцы
+				// рисуем звезды в пределах левого верхнего угла, в остальных местах - "-" на нечетных строках и пробел на четных
 				i <= 6 and j <= 8 ? cout << "*" : i % 2 == 1 ? cout << "-" : cout << " ";
+
 			cout << endl;
 		}
 	}
 
 	void FuncE()
 	{
-		const int WIDTH = 60;
-		const int HEIGHT = 15;
-		char graph[HEIGHT][WIDTH];
+		const int WIDTH = 60; // длина графика
+		const int HEIGHT = 15; // высота
+		char graph[HEIGHT][WIDTH]; // массив размером HEIGHTxWIDTH
 
 		for ( int x = 0; x < WIDTH; x++ )
 		{
-			int y = ( sin( x * 2 * WebanetB::Pi() / WIDTH ) + 1 ) / 2 * HEIGHT;
+			int y = ( sin( x * 2 * WebanetB::Pi() / WIDTH ) + 1 ) / 2 * HEIGHT; // высчитываем координату y
 
-			if ( ( y >= 0 ) and ( y < HEIGHT ) )
+			if ( ( y >= 0 ) and ( y < HEIGHT ) ) // если y не выходит за рамки массива, то кладём на это место в массиве звезду
 				graph[y][x] = '*';
 		}
 
 		for ( int y = 0; y < HEIGHT; y++ )
 		{
+			// вывод двух периодов графика
 			for ( int x = 0; x < WIDTH; x++ )
 				cout << graph[y][x];
 			for ( int x = 0; x < WIDTH; x++ )
@@ -185,7 +189,7 @@ namespace WebanetD
 		}
 	}
 
-	int Convert( char num )
+	int Convert( char num ) // Концертация римской цифры в нормальное числовое значение
 	{
 		switch ( num )
 		{
@@ -219,12 +223,12 @@ namespace WebanetD
 		cout << "Ввод: ";
 		cin >> input;
 
-		int length = input.length();
+
 		bool flag = false;
 
-		for ( int i = 0; i < length; i++ )
+		for ( int i = 0; i < input.length(); i++ ) // Перебор всех цифр римского числа
 		{
-			if ( flag )
+			if ( flag ) // флаг становится трушным*, когда нарушается убывающий порядок цифр в римском числе (напр., IX, IV, XIX). Пропускаем итерацию, дабы не суммировать левую цифру
 			{
 				flag = false;
 				continue;
@@ -232,15 +236,15 @@ namespace WebanetD
 
 			auto currentNumber = find( romanNumChars, romanNumChars + 7, input[i] );
 
-			if ( currentNumber != end( romanNumChars ) )
+			if ( currentNumber != end( romanNumChars ) ) // Проверка на существование цифры в наборе romanNumChars
 			{
-				int currentNumberWeight = Convert( input[i] );
-				int nextNumberWeight = Convert( input[i + 1] );
+				int currentNumberWeight = Convert( input[i] ); // Текущая цифра
+				int nextNumberWeight = Convert( input[i + 1] ); // Следующая цифра
 
-				if ( currentNumberWeight < nextNumberWeight )
+				if ( currentNumberWeight < nextNumberWeight ) // Если правая цифра больше левой, то суммирование происходит как разность правого и левого чисел
 				{
 					result += nextNumberWeight - currentNumberWeight;
-					flag = true;
+					flag = true; // *
 				}
 				else
 					result += currentNumberWeight;
@@ -257,7 +261,7 @@ namespace WebanetD
 		cout << input << " = " << result << endl;
 	}
 
-	int Random( int& s, int m, int b, int c )
+	int Random( int& s, int m, int b, int c ) // int& s - ссылка на s, чтобы значение s менялось с каждым новым вызовом ф. Random()
 	{
 		return s = ( m * s + b ) % c;
 	}
@@ -271,7 +275,7 @@ namespace WebanetD
 
 		cout << "I вариант: " << endl;
 		for ( int i = 0; i < 10; i++ )
-			cout << Random( s, m, b, c ) << endl;
+			cout << Random( s, m, b, c ) << endl; // Вывод 10 чисел по I варианту
 
 
 		s = 0;
@@ -281,7 +285,7 @@ namespace WebanetD
 
 		cout << endl << "II вариант: " << endl;
 		for ( int i = 0; i < 10; i++ )
-			cout << Random( s, m, b, c ) << endl;
+			cout << Random( s, m, b, c ) << endl; // Вывод 10 чисел по II варианту
 	}
 
 	void FuncH()
@@ -292,39 +296,41 @@ namespace WebanetD
 			{ 0, 0, 1.e10, 0 },
 			{ 0, 0, 0, 0 },
 			{ 0, 0, 0, 0 }
-		};
+		}; // массив, в ячейки которого будут записываться полученные значения (ответы на каждый из вопросов)
 
 		float A[3][4] =
 		{
 			{ 5, 2, 0, 10 },
 			{ 3, 5, 2, 5 },
 			{ 20, 0, 0, 0 }
-		};
+		}; // матрица A
 		float B[4][2] =
 		{
 			{ 1.20, 0.50 },
 			{ 2.80, 0.40 },
 			{ 5.00, 1.00 },
 			{ 2.00, 1.50 }
-		};
+		}; // матрица B
 		float C[3][2] =
 		{
 			{ 0, 0 },
 			{ 0, 0 },
 			{ 0, 0 }
-		};
+		}; // матрица C
 
 		for ( int i = 0; i < 3; i++ )
 			for ( int j = 0; j < 2; j++ )
 				for ( int z = 0; z < 4; z++ )
-					C[i][j] += A[i][z] * B[z][j];
+					C[i][j] += A[i][z] * B[z][j]; // Перемножаем матрицы A и B, получаем C
 
+		// Перебор матрицы C
 		for ( int i = 0; i < 3; i++ )
 		{
 			for ( int j = 0; j < 2; j++ )
 			{
-				cout << C[i][j] << "  ";
+				cout << C[i][j] << "  "; // Вывод элементов матрицы C
 
+				// подсчет выручки
 				if ( j == 0 )
 				{
 					if ( C[i][j] > result[0][0] )
@@ -340,7 +346,7 @@ namespace WebanetD
 
 					result[2][0] += C[i][j];
 				}
-				else
+				else // подсчет комиссионных
 				{
 					if ( C[i][j] > result[1][0] )
 					{
@@ -367,8 +373,10 @@ namespace WebanetD
 		cout << "\n5) Сумма, прошедшая через руки продавцов: " << result[2][0] + result[3][0] << endl;
 	}
 
-	int ToInt( char num ) {
-		switch ( num ) {
+	int ToInt( char num ) // Конвертация в инт
+	{
+		switch ( num )
+		{
 			case '0': return 0;
 			case '1': return 1;
 			case '2': return 2;
@@ -389,8 +397,10 @@ namespace WebanetD
 		}
 	}
 
-	string ToChar( int num ) {
-		switch ( num ) {
+	string ToChar( int num ) // концертация из инта
+	{
+		switch ( num )
+		{
 			case 0: return "0";
 			case 1: return "1";
 			case 2: return "2";
@@ -411,12 +421,12 @@ namespace WebanetD
 		}
 	}
 
-	long double ToDecimal( string number, int base )
+	long double ToDecimal( string number, int base ) // перевод в десятичную систему (long double - чтобы хватало на больше значения)
 	{
 		long double result = 0;
 
-		for ( int i = 0; i < number.size(); i++ )
-			result += ToInt( number[i] ) * pow( base, number.size() - i - 1 );
+		for ( int i = 0; i < number.size(); i++ ) // проход по каждой цифре числа
+			result += ToInt( number[i] ) * pow( base, number.size() - i - 1 ); // перевод в десятичную
 
 		return result;
 	}
@@ -426,15 +436,15 @@ namespace WebanetD
 		string result = ToChar( number % base );
 
 		if ( number > 0 )
-			return FromDecimal( number / base, base ) + result;
+			return FromDecimal( number / base, base ) + result; // рекурсивно вызываем ф. и делим число на основание с.с., пока число больше нуля
 
 		return "";
 	}
 
 	void FuncJ()
 	{
-		string number;
-		int startNumberSystem, endNumberSystem;
+		string number; // вводимое число в какой-то системе счисления
+		int startNumberSystem, endNumberSystem; // начальная и конечная с.с.
 
 		cout << "Введите число: ";
 		cin >> number;
@@ -443,7 +453,7 @@ namespace WebanetD
 		cout << "Конвертировать в СС с основанием: ";
 		cin >> endNumberSystem;
 
-		cout << "Результат: " << FromDecimal( ToDecimal( number, startNumberSystem ), endNumberSystem ) << endl;
+		cout << "Результат: " << FromDecimal( ToDecimal( number, startNumberSystem ), endNumberSystem ) << endl; // перевод в десятичную, потом в требуемую
 	}
 
 }
