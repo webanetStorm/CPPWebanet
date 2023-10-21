@@ -1,4 +1,4 @@
-#include <algorithm>
+п»ї#include <algorithm>
 #include <iostream>
 #include <numeric>
 #include <vector>
@@ -9,18 +9,18 @@ using namespace std;
 namespace WebanetF
 {
 
-	vector<vector<int>> Permutations( int count ) // генерация всевозмодных вариков очередности вытаскивания шаров
+	vector<vector<int>> Permutations( int count ) // РіРµРЅРµСЂР°С†РёСЏ РІСЃРµРІРѕР·РјРѕРґРЅС‹С… РІР°СЂРёРєРѕРІ РѕС‡РµСЂРµРґРЅРѕСЃС‚Рё РІС‹С‚Р°СЃРєРёРІР°РЅРёСЏ С€Р°СЂРѕРІ
 	{
-		vector<vector<int>> result; // все комбинации шаров
-		vector<int> balls; // набор номеров шаров
+		vector<vector<int>> result; // РІСЃРµ РєРѕРјР±РёРЅР°С†РёРё С€Р°СЂРѕРІ
+		vector<int> balls; // РЅР°Р±РѕСЂ РЅРѕРјРµСЂРѕРІ С€Р°СЂРѕРІ
 
 
 		for ( int i = 1; i <= count; i++ )
-			balls.push_back( i ); // создаём массив с номерами шаров вида [ 1, 2, 3, ..., count ]
+			balls.push_back( i ); // СЃРѕР·РґР°С‘Рј РјР°СЃСЃРёРІ СЃ РЅРѕРјРµСЂР°РјРё С€Р°СЂРѕРІ РІРёРґР° [ 1, 2, 3, ..., count ]
 
 		do 
-			result.push_back( balls ); // вставляем в result следующую комбинацию шаров
-		while ( next_permutation( balls.begin(), balls.end() ) ); // перестановка шаров
+			result.push_back( balls ); // РІСЃС‚Р°РІР»СЏРµРј РІ result СЃР»РµРґСѓСЋС‰СѓСЋ РєРѕРјР±РёРЅР°С†РёСЋ С€Р°СЂРѕРІ
+		while ( next_permutation( balls.begin(), balls.end() ) ); // РїРµСЂРµСЃС‚Р°РЅРѕРІРєР° С€Р°СЂРѕРІ
 
 
 		return result;
@@ -30,20 +30,20 @@ namespace WebanetF
 	{
 		int result = 0, count;
 
-		cout << "Укажите кол-во шаров: ";
+		cout << "РЈРєР°Р¶РёС‚Рµ РєРѕР»-РІРѕ С€Р°СЂРѕРІ: ";
 		if ( !( cin >> count ) )
 		{
-			cout << "\nНекорректный ввод\n";
+			cout << "\nРќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ\n";
 			return;
 		}
 
-		vector<vector<int>> array = Permutations( count ); // массив с комбинациями шаров
+		vector<vector<int>> array = Permutations( count ); // РјР°СЃСЃРёРІ СЃ РєРѕРјР±РёРЅР°С†РёСЏРјРё С€Р°СЂРѕРІ
 		
 		for ( int i = 0; i < array.size(); i++ )
 		{
 			for ( int j = 0; j < array[i].size(); j++ )
 			{
-				if ( j + 1 == array[i][j] ) // array[i][j] - номер шара, j - порядок вытаскивания шара
+				if ( j + 1 == array[i][j] ) // array[i][j] - РЅРѕРјРµСЂ С€Р°СЂР°, j - РїРѕСЂСЏРґРѕРє РІС‹С‚Р°СЃРєРёРІР°РЅРёСЏ С€Р°СЂР°
 				{
 					result++;
 					break;
@@ -51,7 +51,7 @@ namespace WebanetF
 			}
 		}
 
-		cout << "Ответ: " << result << endl;
+		cout << "РћС‚РІРµС‚: " << result << endl;
 	}
 
 }

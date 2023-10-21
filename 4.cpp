@@ -1,9 +1,9 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <fstream>
 #include <string>
-#include <vector> // класс динамического безразмерного массива 
-#include <cmath> // библиотека математических функций
-#include "2.h" // нужно для использования ф. Pi() из ДЗ #2
+#include <vector> // РєР»Р°СЃСЃ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ Р±РµР·СЂР°Р·РјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° 
+#include <cmath> // Р±РёР±Р»РёРѕС‚РµРєР° РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёС… С„СѓРЅРєС†РёР№
+#include "2.h" // РЅСѓР¶РЅРѕ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ С„. Pi() РёР· Р”Р— #2
 
 using namespace std;
 
@@ -16,10 +16,10 @@ namespace WebanetD
 		float inputNumber, result = 0;
 		ofstream file( "D1.txt" );
 
-		// Считываем и пишем в файл числа
+		// РЎС‡РёС‚С‹РІР°РµРј Рё РїРёС€РµРј РІ С„Р°Р№Р» С‡РёСЃР»Р°
 		for ( int i = 1; i <= 10; i++ )
 		{
-			cout << "Число #" << i << ": ";
+			cout << "Р§РёСЃР»Рѕ #" << i << ": ";
 
 			if ( cin >> inputNumber )
 			{
@@ -27,7 +27,7 @@ namespace WebanetD
 			}
 			else
 			{
-				cout << "Введённое значение не является числом";
+				cout << "Р’РІРµРґС‘РЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РЅРµ СЏРІР»СЏРµС‚СЃСЏ С‡РёСЃР»РѕРј";
 
 				return;
 			}
@@ -37,10 +37,10 @@ namespace WebanetD
 
 
 
-		double digital = 0; // для хранения числа из файла
-		int i = 0; // Счетчик итераций (всего 10 чисел в файле, соотвественноЮ 10 итераций вайла)
+		double digital = 0; // РґР»СЏ С…СЂР°РЅРµРЅРёСЏ С‡РёСЃР»Р° РёР· С„Р°Р№Р»Р°
+		int i = 0; // РЎС‡РµС‚С‡РёРє РёС‚РµСЂР°С†РёР№ (РІСЃРµРіРѕ 10 С‡РёСЃРµР» РІ С„Р°Р№Р»Рµ, СЃРѕРѕС‚РІРµСЃС‚РІРµРЅРЅРѕР® 10 РёС‚РµСЂР°С†РёР№ РІР°Р№Р»Р°)
 		ifstream ifile( "D1.txt" );
-		while ( i != 10 ) // Перебор чисел из файла и их суммирование
+		while ( i != 10 ) // РџРµСЂРµР±РѕСЂ С‡РёСЃРµР» РёР· С„Р°Р№Р»Р° Рё РёС… СЃСѓРјРјРёСЂРѕРІР°РЅРёРµ
 		{
 			ifile >> digital;
 			result += digital;
@@ -49,12 +49,12 @@ namespace WebanetD
 		ifile.close();
 		remove( "D1.txt" );
 
-		cout << "Результат: " << result << endl;
+		cout << "Р РµР·СѓР»СЊС‚Р°С‚: " << result << endl;
 	}
 
-	void Sign( float number ) // Ф., определяющая знак числа
+	void Sign( float number ) // Р¤., РѕРїСЂРµРґРµР»СЏСЋС‰Р°СЏ Р·РЅР°Рє С‡РёСЃР»Р°
 	{
-		cout << "Знак: ";
+		cout << "Р—РЅР°Рє: ";
 
 		if ( number > 0 )
 			cout << "+" << endl;
@@ -67,15 +67,15 @@ namespace WebanetD
 	void FuncB()
 	{
 		float number;
-		cout << "Число: ";
+		cout << "Р§РёСЃР»Рѕ: ";
 
 		if ( cin >> number )
-			Sign( number ); // Вызов ф. Sign()
+			Sign( number ); // Р’С‹Р·РѕРІ С„. Sign()
 		else
-			cout << "Некорректынй ввод" << endl;
+			cout << "РќРµРєРѕСЂСЂРµРєС‚С‹РЅР№ РІРІРѕРґ" << endl;
 	}
 
-	float RectangleArea( float a, float b ) // S прямоугольника
+	float RectangleArea( float a, float b ) // S РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°
 	{
 		return a * b;
 	}
@@ -84,26 +84,26 @@ namespace WebanetD
 	{
 		float rectangleA, rectangleB;
 
-		cout << "Сторона A прямоугольника: ";
+		cout << "РЎС‚РѕСЂРѕРЅР° A РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°: ";
 		if ( !( cin >> rectangleA ) or rectangleA <= 0 )
 		{
-			cout << "Некорректный ввод" << endl;
+			cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ" << endl;
 
 			return;
 		}
 
-		cout << "Сторона B прямоугольника: ";
+		cout << "РЎС‚РѕСЂРѕРЅР° B РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°: ";
 		if ( !( cin >> rectangleB ) or rectangleB <= 0 )
 		{
-			cout << "Некорректный ввод" << endl;
+			cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ" << endl;
 
 			return;
 		}
 
-		cout << "Площадь прямоугольника: " << RectangleArea( rectangleA, rectangleB ) << endl;
+		cout << "РџР»РѕС‰Р°РґСЊ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°: " << RectangleArea( rectangleA, rectangleB ) << endl;
 	}
 
-	float TriangleArea( float a, float h ) // S треугольника по основанию и высоте
+	float TriangleArea( float a, float h ) // S С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РїРѕ РѕСЃРЅРѕРІР°РЅРёСЋ Рё РІС‹СЃРѕС‚Рµ
 	{
 		return a * h * 0.5;
 	}
@@ -112,26 +112,26 @@ namespace WebanetD
 	{
 		float triangleA, triangleH;
 
-		cout << "Основание треугольника: ";
+		cout << "РћСЃРЅРѕРІР°РЅРёРµ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°: ";
 		if ( !( cin >> triangleA ) or triangleA <= 0 )
 		{
-			cout << "Некорректный ввод" << endl;
+			cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ" << endl;
 
 			return;
 		}
 
-		cout << "Высота треугольника: ";
+		cout << "Р’С‹СЃРѕС‚Р° С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°: ";
 		if ( !( cin >> triangleH ) or triangleH <= 0 )
 		{
-			cout << "Некорректный ввод" << endl;
+			cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ" << endl;
 
 			return;
 		}
 
-		cout << "Площадь треугольника: " << TriangleArea( triangleA, triangleH ) << endl;
+		cout << "РџР»РѕС‰Р°РґСЊ С‚СЂРµСѓРіРѕР»СЊРЅРёРєР°: " << TriangleArea( triangleA, triangleH ) << endl;
 	}
 
-	float CircleArea( float r ) // S круга
+	float CircleArea( float r ) // S РєСЂСѓРіР°
 	{
 		return WebanetB::Pi() * pow( r, 2 );
 	}
@@ -140,23 +140,23 @@ namespace WebanetD
 	{
 		float circleR;
 
-		cout << "Радиус круга: ";
+		cout << "Р Р°РґРёСѓСЃ РєСЂСѓРіР°: ";
 		if ( !( cin >> circleR ) or circleR <= 0 )
 		{
-			cout << "Некорректный ввод" << endl;
+			cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ" << endl;
 
 			return;
 		}
 
-		cout << "Площадь круга: " << CircleArea( circleR ) << endl;
+		cout << "РџР»РѕС‰Р°РґСЊ РєСЂСѓРіР°: " << CircleArea( circleR ) << endl;
 	}
 
 	void FuncD()
 	{
-		for ( int i = 1; i <= 13; i++ ) // строки
+		for ( int i = 1; i <= 13; i++ ) // СЃС‚СЂРѕРєРё
 		{
-			for ( int j = 1; j <= 35; j++ ) // стобцы
-				// рисуем звезды в пределах левого верхнего угла, в остальных местах - "-" на нечетных строках и пробел на четных
+			for ( int j = 1; j <= 35; j++ ) // СЃС‚РѕР±С†С‹
+				// СЂРёСЃСѓРµРј Р·РІРµР·РґС‹ РІ РїСЂРµРґРµР»Р°С… Р»РµРІРѕРіРѕ РІРµСЂС…РЅРµРіРѕ СѓРіР»Р°, РІ РѕСЃС‚Р°Р»СЊРЅС‹С… РјРµСЃС‚Р°С… - "-" РЅР° РЅРµС‡РµС‚РЅС‹С… СЃС‚СЂРѕРєР°С… Рё РїСЂРѕР±РµР» РЅР° С‡РµС‚РЅС‹С…
 				i <= 6 and j <= 8 ? cout << "*" : i % 2 == 1 ? cout << "-" : cout << " ";
 
 			cout << endl;
@@ -165,21 +165,21 @@ namespace WebanetD
 
 	void FuncE()
 	{
-		const int WIDTH = 60; // длина графика
-		const int HEIGHT = 15; // высота
-		char graph[HEIGHT][WIDTH]; // массив размером HEIGHTxWIDTH
+		const int WIDTH = 60; // РґР»РёРЅР° РіСЂР°С„РёРєР°
+		const int HEIGHT = 15; // РІС‹СЃРѕС‚Р°
+		char graph[HEIGHT][WIDTH]; // РјР°СЃСЃРёРІ СЂР°Р·РјРµСЂРѕРј HEIGHTxWIDTH
 
 		for ( int x = 0; x < WIDTH; x++ )
 		{
-			int y = ( sin( x * 2 * WebanetB::Pi() / WIDTH ) + 1 ) / 2 * HEIGHT; // высчитываем координату y
+			int y = ( sin( x * 2 * WebanetB::Pi() / WIDTH ) + 1 ) / 2 * HEIGHT; // РІС‹СЃС‡РёС‚С‹РІР°РµРј РєРѕРѕСЂРґРёРЅР°С‚Сѓ y
 
-			if ( ( y >= 0 ) and ( y < HEIGHT ) ) // если y не выходит за рамки массива, то кладём на это место в массиве звезду
+			if ( ( y >= 0 ) and ( y < HEIGHT ) ) // РµСЃР»Рё y РЅРµ РІС‹С…РѕРґРёС‚ Р·Р° СЂР°РјРєРё РјР°СЃСЃРёРІР°, С‚Рѕ РєР»Р°РґС‘Рј РЅР° СЌС‚Рѕ РјРµСЃС‚Рѕ РІ РјР°СЃСЃРёРІРµ Р·РІРµР·РґСѓ
 				graph[y][x] = '*';
 		}
 
 		for ( int y = 0; y < HEIGHT; y++ )
 		{
-			// вывод двух периодов графика
+			// РІС‹РІРѕРґ РґРІСѓС… РїРµСЂРёРѕРґРѕРІ РіСЂР°С„РёРєР°
 			for ( int x = 0; x < WIDTH; x++ )
 				cout << graph[y][x];
 			for ( int x = 0; x < WIDTH; x++ )
@@ -188,7 +188,7 @@ namespace WebanetD
 		}
 	}
 
-	int Convert( char num ) // Концертация римской цифры в нормальное числовое значение
+	int Convert( char num ) // РљРѕРЅС†РµСЂС‚Р°С†РёСЏ СЂРёРјСЃРєРѕР№ С†РёС„СЂС‹ РІ РЅРѕСЂРјР°Р»СЊРЅРѕРµ С‡РёСЃР»РѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ
 	{
 		switch ( num )
 		{
@@ -210,13 +210,13 @@ namespace WebanetD
 		char romanNumChars[7] = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
 		string input;
 
-		cout << "Ввод: ";
+		cout << "Р’РІРѕРґ: ";
 		cin >> input;
 
 
-		for ( int i = 0; i < input.length(); i++ ) // Перебор всех цифр римского числа
+		for ( int i = 0; i < input.length(); i++ ) // РџРµСЂРµР±РѕСЂ РІСЃРµС… С†РёС„СЂ СЂРёРјСЃРєРѕРіРѕ С‡РёСЃР»Р°
 		{
-			if ( flag ) // флаг становится трушным*, когда нарушается убывающий порядок цифр в римском числе (напр., IX, IV, XIX). Пропускаем итерацию, дабы не суммировать левую цифру
+			if ( flag ) // С„Р»Р°Рі СЃС‚Р°РЅРѕРІРёС‚СЃСЏ С‚СЂСѓС€РЅС‹Рј*, РєРѕРіРґР° РЅР°СЂСѓС€Р°РµС‚СЃСЏ СѓР±С‹РІР°СЋС‰РёР№ РїРѕСЂСЏРґРѕРє С†РёС„СЂ РІ СЂРёРјСЃРєРѕРј С‡РёСЃР»Рµ (РЅР°РїСЂ., IX, IV, XIX). РџСЂРѕРїСѓСЃРєР°РµРј РёС‚РµСЂР°С†РёСЋ, РґР°Р±С‹ РЅРµ СЃСѓРјРјРёСЂРѕРІР°С‚СЊ Р»РµРІСѓСЋ С†РёС„СЂСѓ
 			{
 				flag = false;
 				continue;
@@ -224,12 +224,12 @@ namespace WebanetD
 
 			auto currentNumber = find( romanNumChars, romanNumChars + 7, input[i] );
 
-			if ( currentNumber != end( romanNumChars ) ) // Проверка на существование цифры в наборе romanNumChars
+			if ( currentNumber != end( romanNumChars ) ) // РџСЂРѕРІРµСЂРєР° РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ С†РёС„СЂС‹ РІ РЅР°Р±РѕСЂРµ romanNumChars
 			{
-				int currentNumberWeight = Convert( input[i] ); // Текущая цифра
-				int nextNumberWeight = Convert( input[i + 1] ); // Следующая цифра
+				int currentNumberWeight = Convert( input[i] ); // РўРµРєСѓС‰Р°СЏ С†РёС„СЂР°
+				int nextNumberWeight = Convert( input[i + 1] ); // РЎР»РµРґСѓСЋС‰Р°СЏ С†РёС„СЂР°
 
-				if ( currentNumberWeight < nextNumberWeight ) // Если правая цифра больше левой, то суммирование происходит как разность правого и левого чисел
+				if ( currentNumberWeight < nextNumberWeight ) // Р•СЃР»Рё РїСЂР°РІР°СЏ С†РёС„СЂР° Р±РѕР»СЊС€Рµ Р»РµРІРѕР№, С‚Рѕ СЃСѓРјРјРёСЂРѕРІР°РЅРёРµ РїСЂРѕРёСЃС…РѕРґРёС‚ РєР°Рє СЂР°Р·РЅРѕСЃС‚СЊ РїСЂР°РІРѕРіРѕ Рё Р»РµРІРѕРіРѕ С‡РёСЃРµР»
 				{
 					result += nextNumberWeight - currentNumberWeight;
 					flag = true; // *
@@ -239,7 +239,7 @@ namespace WebanetD
 			}
 			else
 			{
-				cout << "Некорректный ввод\n";
+				cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ\n";
 
 				return;
 			}
@@ -249,7 +249,7 @@ namespace WebanetD
 		cout << input << " = " << result << endl;
 	}
 
-	int Random( int& s, int m, int b, int c ) // int& s - ссылка на s, чтобы значение s менялось с каждым новым вызовом ф. Random()
+	int Random( int& s, int m, int b, int c ) // int& s - СЃСЃС‹Р»РєР° РЅР° s, С‡С‚РѕР±С‹ Р·РЅР°С‡РµРЅРёРµ s РјРµРЅСЏР»РѕСЃСЊ СЃ РєР°Р¶РґС‹Рј РЅРѕРІС‹Рј РІС‹Р·РѕРІРѕРј С„. Random()
 	{
 		return s = ( m * s + b ) % c;
 	}
@@ -261,9 +261,9 @@ namespace WebanetD
 		int b = 3;
 		int c = 64;
 
-		cout << "I вариант: " << endl;
+		cout << "I РІР°СЂРёР°РЅС‚: " << endl;
 		for ( int i = 0; i < 10; i++ )
-			cout << Random( s, m, b, c ) << endl; // Вывод 10 чисел по I варианту
+			cout << Random( s, m, b, c ) << endl; // Р’С‹РІРѕРґ 10 С‡РёСЃРµР» РїРѕ I РІР°СЂРёР°РЅС‚Сѓ
 
 
 		s = 0;
@@ -271,9 +271,9 @@ namespace WebanetD
 		b = 13849;
 		c = 65537;
 
-		cout << endl << "II вариант: " << endl;
+		cout << endl << "II РІР°СЂРёР°РЅС‚: " << endl;
 		for ( int i = 0; i < 10; i++ )
-			cout << Random( s, m, b, c ) << endl; // Вывод 10 чисел по II варианту
+			cout << Random( s, m, b, c ) << endl; // Р’С‹РІРѕРґ 10 С‡РёСЃРµР» РїРѕ II РІР°СЂРёР°РЅС‚Сѓ
 	}
 
 	void FuncH()
@@ -284,41 +284,41 @@ namespace WebanetD
 			{ 0, 0, 1.e10, 0 },
 			{ 0, 0, 0, 0 },
 			{ 0, 0, 0, 0 }
-		}; // массив, в ячейки которого будут записываться полученные значения (ответы на каждый из вопросов)
+		}; // РјР°СЃСЃРёРІ, РІ СЏС‡РµР№РєРё РєРѕС‚РѕСЂРѕРіРѕ Р±СѓРґСѓС‚ Р·Р°РїРёСЃС‹РІР°С‚СЊСЃСЏ РїРѕР»СѓС‡РµРЅРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ (РѕС‚РІРµС‚С‹ РЅР° РєР°Р¶РґС‹Р№ РёР· РІРѕРїСЂРѕСЃРѕРІ)
 
 		float A[3][4] =
 		{
 			{ 5, 2, 0, 10 },
 			{ 3, 5, 2, 5 },
 			{ 20, 0, 0, 0 }
-		}; // матрица A
+		}; // РјР°С‚СЂРёС†Р° A
 		float B[4][2] =
 		{
 			{ 1.20, 0.50 },
 			{ 2.80, 0.40 },
 			{ 5.00, 1.00 },
 			{ 2.00, 1.50 }
-		}; // матрица B
+		}; // РјР°С‚СЂРёС†Р° B
 		float C[3][2] =
 		{
 			{ 0, 0 },
 			{ 0, 0 },
 			{ 0, 0 }
-		}; // матрица C
+		}; // РјР°С‚СЂРёС†Р° C
 
 		for ( int i = 0; i < 3; i++ )
 			for ( int j = 0; j < 2; j++ )
 				for ( int z = 0; z < 4; z++ )
-					C[i][j] += A[i][z] * B[z][j]; // Перемножаем матрицы A и B, получаем C
+					C[i][j] += A[i][z] * B[z][j]; // РџРµСЂРµРјРЅРѕР¶Р°РµРј РјР°С‚СЂРёС†С‹ A Рё B, РїРѕР»СѓС‡Р°РµРј C
 
-		// Перебор матрицы C
+		// РџРµСЂРµР±РѕСЂ РјР°С‚СЂРёС†С‹ C
 		for ( int i = 0; i < 3; i++ )
 		{
 			for ( int j = 0; j < 2; j++ )
 			{
-				cout << C[i][j] << "  "; // Вывод элементов матрицы C
+				cout << C[i][j] << "  "; // Р’С‹РІРѕРґ СЌР»РµРјРµРЅС‚РѕРІ РјР°С‚СЂРёС†С‹ C
 
-				// подсчет выручки
+				// РїРѕРґСЃС‡РµС‚ РІС‹СЂСѓС‡РєРё
 				if ( j == 0 )
 				{
 					if ( C[i][j] > result[0][0] )
@@ -334,7 +334,7 @@ namespace WebanetD
 
 					result[2][0] += C[i][j];
 				}
-				else // подсчет комиссионных
+				else // РїРѕРґСЃС‡РµС‚ РєРѕРјРёСЃСЃРёРѕРЅРЅС‹С…
 				{
 					if ( C[i][j] > result[1][0] )
 					{
@@ -354,14 +354,14 @@ namespace WebanetD
 			cout << endl;
 		}
 
-		cout << "\n1) Наибольшая выручка у " << result[0][1] << "-го продавца (" << result[0][0] << "), наименьшая - у " << result[0][3] << "-го (" << result[0][2] << ")";
-		cout << "\n2) Наибольшие комиссионные у " << result[1][1] << "-го продавца (" << result[1][0] << "), наименьшие - у " << result[1][3] << "-го (" << result[1][2] << ")";
-		cout << "\n3) Общая выручка всех продавцов: " << result[2][0];
-		cout << "\n4) Полученные продавцами комиссионные: " << result[3][0];
-		cout << "\n5) Сумма, прошедшая через руки продавцов: " << result[2][0] + result[3][0] << endl;
+		cout << "\n1) РќР°РёР±РѕР»СЊС€Р°СЏ РІС‹СЂСѓС‡РєР° Сѓ " << result[0][1] << "-РіРѕ РїСЂРѕРґР°РІС†Р° (" << result[0][0] << "), РЅР°РёРјРµРЅСЊС€Р°СЏ - Сѓ " << result[0][3] << "-РіРѕ (" << result[0][2] << ")";
+		cout << "\n2) РќР°РёР±РѕР»СЊС€РёРµ РєРѕРјРёСЃСЃРёРѕРЅРЅС‹Рµ Сѓ " << result[1][1] << "-РіРѕ РїСЂРѕРґР°РІС†Р° (" << result[1][0] << "), РЅР°РёРјРµРЅСЊС€РёРµ - Сѓ " << result[1][3] << "-РіРѕ (" << result[1][2] << ")";
+		cout << "\n3) РћР±С‰Р°СЏ РІС‹СЂСѓС‡РєР° РІСЃРµС… РїСЂРѕРґР°РІС†РѕРІ: " << result[2][0];
+		cout << "\n4) РџРѕР»СѓС‡РµРЅРЅС‹Рµ РїСЂРѕРґР°РІС†Р°РјРё РєРѕРјРёСЃСЃРёРѕРЅРЅС‹Рµ: " << result[3][0];
+		cout << "\n5) РЎСѓРјРјР°, РїСЂРѕС€РµРґС€Р°СЏ С‡РµСЂРµР· СЂСѓРєРё РїСЂРѕРґР°РІС†РѕРІ: " << result[2][0] + result[3][0] << endl;
 	}
 
-	int ToInt( char num ) // Конвертация в инт
+	int ToInt( char num ) // РљРѕРЅРІРµСЂС‚Р°С†РёСЏ РІ РёРЅС‚
 	{
 		switch ( num )
 		{
@@ -385,7 +385,7 @@ namespace WebanetD
 		}
 	}
 
-	string ToChar( int num ) // концертация из инта
+	string ToChar( int num ) // РєРѕРЅС†РµСЂС‚Р°С†РёСЏ РёР· РёРЅС‚Р°
 	{
 		switch ( num )
 		{
@@ -409,12 +409,12 @@ namespace WebanetD
 		}
 	}
 
-	long double ToDecimal( string number, int base ) // перевод в десятичную систему (long double - чтобы хватало на больше значения)
+	long double ToDecimal( string number, int base ) // РїРµСЂРµРІРѕРґ РІ РґРµСЃСЏС‚РёС‡РЅСѓСЋ СЃРёСЃС‚РµРјСѓ (long double - С‡С‚РѕР±С‹ С…РІР°С‚Р°Р»Рѕ РЅР° Р±РѕР»СЊС€Рµ Р·РЅР°С‡РµРЅРёСЏ)
 	{
 		long double result = 0;
 
-		for ( int i = 0; i < number.size(); i++ ) // проход по каждой цифре числа
-			result += ToInt( number[i] ) * pow( base, number.size() - i - 1 ); // перевод в десятичную
+		for ( int i = 0; i < number.size(); i++ ) // РїСЂРѕС…РѕРґ РїРѕ РєР°Р¶РґРѕР№ С†РёС„СЂРµ С‡РёСЃР»Р°
+			result += ToInt( number[i] ) * pow( base, number.size() - i - 1 ); // РїРµСЂРµРІРѕРґ РІ РґРµСЃСЏС‚РёС‡РЅСѓСЋ
 
 		return result;
 	}
@@ -424,24 +424,24 @@ namespace WebanetD
 		string result = ToChar( number % base );
 
 		if ( number > 0 )
-			return FromDecimal( number / base, base ) + result; // рекурсивно вызываем ф. и делим число на основание с.с., пока число больше нуля
+			return FromDecimal( number / base, base ) + result; // СЂРµРєСѓСЂСЃРёРІРЅРѕ РІС‹Р·С‹РІР°РµРј С„. Рё РґРµР»РёРј С‡РёСЃР»Рѕ РЅР° РѕСЃРЅРѕРІР°РЅРёРµ СЃ.СЃ., РїРѕРєР° С‡РёСЃР»Рѕ Р±РѕР»СЊС€Рµ РЅСѓР»СЏ
 
 		return "";
 	}
 
 	void FuncJ()
 	{
-		string number; // вводимое число в какой-то системе счисления
-		int startNumberSystem, endNumberSystem; // начальная и конечная с.с.
+		string number; // РІРІРѕРґРёРјРѕРµ С‡РёСЃР»Рѕ РІ РєР°РєРѕР№-С‚Рѕ СЃРёСЃС‚РµРјРµ СЃС‡РёСЃР»РµРЅРёСЏ
+		int startNumberSystem, endNumberSystem; // РЅР°С‡Р°Р»СЊРЅР°СЏ Рё РєРѕРЅРµС‡РЅР°СЏ СЃ.СЃ.
 
-		cout << "Введите число: ";
+		cout << "Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ: ";
 		cin >> number;
-		cout << "Основание СС введённого числа: ";
+		cout << "РћСЃРЅРѕРІР°РЅРёРµ РЎРЎ РІРІРµРґС‘РЅРЅРѕРіРѕ С‡РёСЃР»Р°: ";
 		cin >> startNumberSystem;
-		cout << "Конвертировать в СС с основанием: ";
+		cout << "РљРѕРЅРІРµСЂС‚РёСЂРѕРІР°С‚СЊ РІ РЎРЎ СЃ РѕСЃРЅРѕРІР°РЅРёРµРј: ";
 		cin >> endNumberSystem;
 
-		cout << "Результат: " << FromDecimal( ToDecimal( number, startNumberSystem ), endNumberSystem ) << endl; // перевод в десятичную, потом в требуемую
+		cout << "Р РµР·СѓР»СЊС‚Р°С‚: " << FromDecimal( ToDecimal( number, startNumberSystem ), endNumberSystem ) << endl; // РїРµСЂРµРІРѕРґ РІ РґРµСЃСЏС‚РёС‡РЅСѓСЋ, РїРѕС‚РѕРј РІ С‚СЂРµР±СѓРµРјСѓСЋ
 	}
 
 }
