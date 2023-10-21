@@ -28,7 +28,6 @@ namespace WebanetD
 			else
 			{
 				cout << "¬ведЄнное значение не €вл€етс€ числом";
-
 				return;
 			}
 		}
