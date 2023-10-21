@@ -28,7 +28,7 @@ namespace WebanetB
 
 		float l = sqrt( pow( h, 2 ) + pow( r1 - r2, 2 ) );
 
-		cout << "Объём: " << 1.0 / 3.0 * Pi() * h * ( pow( r1, 2 ) + r1 * r2 + pow( r2, 2 ) ); // pow() - функция возведения в степень
+		cout << "Объём: " << 1.0 / 3.0 * Pi() * h * ( pow( r1, 2 ) + r1 * r2 + pow( r2, 2 ) ); // pow() - функ. возведения в степень
 		cout << "\nПлощадь поверхности: " << Pi() * ( pow( r1, 2 ) + ( r1 + r2 ) * l + pow( r2, 2 ) ) << endl;
 	}
 

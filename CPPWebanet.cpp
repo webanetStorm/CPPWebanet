@@ -42,7 +42,7 @@ int main()
 	// WebanetC::FuncD();
 
 	/* Д/З #4 */
-	// WebanetD::FuncA();
+	WebanetD::FuncA();
 	// WebanetD::FuncB();
 	// WebanetD::FuncCA();
 	// WebanetD::FuncCB();
@@ -64,14 +64,14 @@ int main()
 	// WebanetE::FuncE();
 
 	/* Шарики */
-	// WebanetF::Func();
+	// WebanetF::Func(); // выполняется несколько секунд
 
 	/* Спиннеры */
 	// WebanetG::FuncA();
 	// WebanetG::FuncB();
 	// WebanetG::FuncC();
 	// WebanetG::FuncD();
-	WebanetG::FuncE();
+	// WebanetG::FuncE();
 
 
 	return 0;

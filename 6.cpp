@@ -16,7 +16,7 @@ namespace WebanetF
 
 
 		for ( int i = 1; i <= count; i++ )
-			balls.push_back( i ); // создаём массив с номерами шаров вида [ 1, 2, 3, 4, ..., count ]
+			balls.push_back( i ); // создаём массив с номерами шаров вида [ 1, 2, 3, ..., count ]
 
 		do 
 			result.push_back( balls ); // вставляем в result следующую комбинацию шаров
