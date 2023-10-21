@@ -22,8 +22,8 @@ int main()
 	/* Каждое пространство имён вида WebanetX - отдельное ДЗ, каждая функция вида FuncX() - отдельное задание из ДЗ. A=1, B=2, C=3 и т.д. */
 
 	/* Д/З #1 */
-	// WebanetA::FuncZ(); // самое первое задание (вывод имени)
-	// WebanetA::FuncA();
+	//WebanetA::FuncZ(); // самое первое задание (вывод имени)
+	WebanetA::FuncA();
 	// WebanetA::FuncB();
 	// WebanetA::FuncC();
 	// WebanetA::FuncD();
@@ -42,7 +42,7 @@ int main()
 	// WebanetC::FuncD();
 
 	/* Д/З #4 */
-	WebanetD::FuncA();
+	// WebanetD::FuncA();
 	// WebanetD::FuncB();
 	// WebanetD::FuncCA();
 	// WebanetD::FuncCB();
