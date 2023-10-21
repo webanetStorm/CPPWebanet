@@ -1,7 +1,7 @@
-#include <algorithm>
+#include <algorithm> // библиотека алгоритмических функций (понадобится только sort())
 #include <iostream>
 #include <vector>
-#include "5.h"
+#include "5.h" // для использования ф. Max()
 
 using namespace std;
 
@@ -115,7 +115,7 @@ namespace WebanetG
 
             for ( int j = 0; j < map[i].size(); j++ ) // перебор мест в ряду
             {
-                if ( find( mapFreeSeats.begin(), mapFreeSeats.end(), map[i][j] ) == mapFreeSeats.end() ) // поиск номера места в массиве свободных мест
+                if ( find( mapFreeSeats.begin(), mapFreeSeats.end(), map[i][j] ) == mapFreeSeats.end() ) // проверка на свободность места
                 {
                     flag = false;
                     break;
@@ -137,7 +137,50 @@ namespace WebanetG
 
 	void FuncE()
 	{
-        
+        // result - массив с искомыми значениями, free и freeTemp: первый элемент - точка отсчета свободных мест на отрезке, второй - кол-во свободных мест на отрезке
+        int n, k, result[2] = { 0, 0 }, free[2] = { 0, 0 }, freeTemp[2] = { 0, 0 };
+        vector<char> row = { '+' }; // ряд в зале (плюсы - занятые места, минусы - свободные)
+
+        cout << "N: ";
+        if ( !( cin >> n ) )
+        {
+            cout << "Некорректный ввод\n";
+            return;
+        }
+        cout << "K: ";
+        if ( !( cin >> k ) or k > n )
+        {
+            cout << "Некорректный ввод\n";
+            return;
+        }
+
+        for ( int i = 0; i < n; i++ )
+            row.push_back( '-' ); // в начале все места свободны (-)
+        row.push_back( '+' ); // по краям места заняты персоналом (+)
+
+        for ( int i = 0; i < k; i++ ) // Перебор всех школьников
+        {
+            for ( int j = 0; j < row.size(); j++ ) // перебор мест в ряду
+            {
+                if ( row[j] == '-' ) // если место свободно
+                {
+                    freeTemp[1]++; // то начинаем подсчет кол-ва свободных мест на текущем отрезке
+                    if ( row[j - 1] == '+' ) // если предыдущее место занято, то точкой отсчета отрезка будет текущий индекс j
+                        freeTemp[0] = j;
+
+                    if ( freeTemp[1] > free[1] )
+                        free[0] = freeTemp[0], free[1] = freeTemp[1]; // перекладываем значения из временнного массива в основной, если текущий отрезок свободных мест больше предыдущего
+                }
+                else
+                    freeTemp[0] = 0, freeTemp[1] = 0; // обнуление временного массива свободных мест
+            }
+
+            row[free[1] / 2 + free[0]] = '+'; // располагаем школьника в середину отрезка свободных мест
+            free[1] % 2 == 0 ? result[0] = free[1] / 2 - 1, result[1] = free[1] / 2 : result[0] = free[1] / 2, result[1] = free[1] / 2; // подсчет свободных мест справа и слева от севшего
+            free[0] = 0, free[1] = 0; // обнулеение основого массива свобобдных мест
+        }
+
+        cout << result[0] << " " << result[1] << endl;
 	}
 
 }

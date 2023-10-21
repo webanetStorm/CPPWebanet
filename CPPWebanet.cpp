@@ -51,7 +51,7 @@ int main()
     // WebanetD::FuncE();
 	// WebanetD::FuncF();
 	// WebanetD::FuncG();
-	WebanetD::FuncH();
+	// WebanetD::FuncH();
 	// WebanetD::FuncJ();
 
 	/* Д/З #5 */
@@ -71,7 +71,7 @@ int main()
 	// WebanetG::FuncB();
 	// WebanetG::FuncC();
 	// WebanetG::FuncD();
-	// WebanetG::FuncE();
+	WebanetG::FuncE();
 
 
 	return 0;

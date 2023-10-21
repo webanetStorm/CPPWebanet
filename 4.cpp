@@ -1,9 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
-#include <cmath>
-#include <map>
+#include <vector> // класс динамического безразмерного массива 
+#include <cmath> // библиотека математических функций
 #include "2.h" // нужно для использования ф. Pi() из ДЗ #2
 
 using namespace std;
@@ -207,24 +206,13 @@ namespace WebanetD
 	void FuncF()
 	{
 		int result = 0;
-
+		bool flag = false; // *
 		char romanNumChars[7] = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
-		map<char, int> nums = {
-			{ romanNumChars[0], 1 },
-			{ romanNumChars[1], 2 },
-			{ romanNumChars[2], 3 },
-			{ romanNumChars[3], 4 },
-			{ romanNumChars[4], 5 },
-			{ romanNumChars[5], 6 },
-			{ romanNumChars[6], 7 }
-		};
-
 		string input;
+
 		cout << "Ввод: ";
 		cin >> input;
 
-
-		bool flag = false;
 
 		for ( int i = 0; i < input.length(); i++ ) // Перебор всех цифр римского числа
 		{
