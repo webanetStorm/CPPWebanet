@@ -23,7 +23,7 @@ int main()
 
 	/* Д/З #1 */
 	//WebanetA::FuncZ(); // самое первое задание (вывод имени)
-	WebanetA::FuncA();
+	// WebanetA::FuncA();
 	// WebanetA::FuncB();
 	// WebanetA::FuncC();
 	// WebanetA::FuncD();
@@ -61,7 +61,7 @@ int main()
 	// WebanetE::FuncCB();
 	// WebanetE::FuncDA();
 	// WebanetE::FuncDB();
-	// WebanetE::FuncE();
+	WebanetE::FuncE();
 
 	/* Шарики */
 	// WebanetF::Func(); // выполняется несколько секунд
