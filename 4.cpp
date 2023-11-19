@@ -444,4 +444,10 @@ namespace WebanetD
 		cout << "Результат: " << FromDecimal( ToDecimal( number, startNumberSystem ), endNumberSystem ) << endl; // перевод в десятичную, потом в требуемую
 	}
 
+	void FuncJA()
+	{
+		for ( int i = 0; i < 16; i++ )
+			cout << i << " -> " << FromDecimal( i, 12 ) << endl;
+	}
+
 }
